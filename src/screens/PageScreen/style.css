@@ -1,0 +1,107 @@
+.page-screen {
+  background-color: #eef0f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.page-screen .page-2 {
+  background-color: #eef0f0;
+  height: 2006px;
+  position: relative;
+  width: 1920px;
+}
+
+.page-screen .SEASONS-wrapper {
+  background-color: #ffffff99;
+  border-radius: 16px;
+  height: 1156px;
+  left: 93px;
+  position: absolute;
+  top: 245px;
+  width: 1717px;
+}
+
+.page-screen .SEASONS {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 90px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 61px;
+  width: 1557px;
+}
+
+.page-screen .overlap-group-2 {
+  background-color: #ffffff99;
+  border-radius: 16px;
+  height: 165px;
+  left: 93px;
+  position: absolute;
+  top: 1483px;
+  width: 1717px;
+}
+
+.page-screen .text-wrapper-13 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 89px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 67px;
+  width: 245px;
+}
+
+.page-screen .wechatimg-2 {
+  height: 153px;
+  left: 16px;
+  position: absolute;
+  top: 0;
+  width: 163px;
+}
+
+.page-screen .text-wrapper-14 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 864px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 152px;
+}
+
+.page-screen .component-2 {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgb(156, 254, 218.72) 0deg,
+    rgb(156, 254, 183.44) 360deg
+  );
+  background-color: var(--green-button);
+  border-radius: 75px;
+  height: 123px;
+  left: 1509px;
+  position: absolute;
+  top: 1453px;
+  width: 301px;
+}
+
+.page-screen .text-wrapper-15 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+  left: 102px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 41px;
+}

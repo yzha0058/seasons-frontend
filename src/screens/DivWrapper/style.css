@@ -1,0 +1,226 @@
+.div-wrapper {
+  background-color: #eef0f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.div-wrapper .overlap-wrapper {
+  background-color: #eef0f0;
+  height: 1080px;
+  overflow: hidden;
+  width: 1920px;
+}
+
+.div-wrapper .overlap-2 {
+  height: 1154px;
+  position: relative;
+}
+
+.div-wrapper .overlap-group-3 {
+  height: 1011px;
+  left: 0;
+  position: absolute;
+  top: 143px;
+  width: 1920px;
+}
+
+.div-wrapper .rectangle-4 {
+  background-color: #ffffff;
+  border-radius: 39px;
+  height: 1920px;
+  left: 454px;
+  position: absolute;
+  top: -454px;
+  transform: rotate(90.00deg);
+  width: 1011px;
+}
+
+.div-wrapper .text-wrapper-16 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 724px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 89px;
+  width: 367px;
+}
+
+.div-wrapper .text-wrapper-17 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 724px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 290px;
+  width: 367px;
+}
+
+.div-wrapper .text-wrapper-18 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 724px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 491px;
+  width: 367px;
+}
+
+.div-wrapper .text-wrapper-19 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 724px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 692px;
+  width: 367px;
+}
+
+.div-wrapper .rectangle-5 {
+  background-color: #eef0f0;
+  border-radius: 16px;
+  height: 70px;
+  left: 725px;
+  position: absolute;
+  top: 148px;
+  width: 632px;
+}
+
+.div-wrapper .rectangle-6 {
+  background-color: #eef0f0;
+  border-radius: 16px;
+  height: 70px;
+  left: 724px;
+  position: absolute;
+  top: 350px;
+  width: 632px;
+}
+
+.div-wrapper .rectangle-7 {
+  background-color: #eef0f0;
+  border-radius: 16px;
+  height: 70px;
+  left: 724px;
+  position: absolute;
+  top: 551px;
+  width: 632px;
+}
+
+.div-wrapper .rectangle-8 {
+  background-color: #eef0f0;
+  border-radius: 16px;
+  height: 70px;
+  left: 724px;
+  position: absolute;
+  top: 752px;
+  width: 632px;
+}
+
+.div-wrapper .subtract {
+  height: 807px;
+  left: 179px;
+  position: absolute;
+  top: 54px;
+  width: 299px;
+}
+
+.div-wrapper .text-wrapper-20 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 45px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 475px;
+}
+
+.div-wrapper .group-3 {
+  height: 136px;
+  left: 57px;
+  position: absolute;
+  top: 512px;
+  width: 1px;
+}
+
+.div-wrapper .line-9 {
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 87px;
+  width: 3px;
+}
+
+.div-wrapper .line-10 {
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 118px;
+  width: 3px;
+}
+
+.div-wrapper .line-11 {
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 3px;
+}
+
+.div-wrapper .line-12 {
+  height: 44px;
+  left: 0;
+  position: absolute;
+  top: 31px;
+  width: 3px;
+}
+
+.div-wrapper .component-3 {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgb(156, 254, 218.72) 0deg,
+    rgb(156, 254, 183.44) 360deg
+  );
+  background-color: var(--green-button);
+  border-radius: 75px;
+  display: block;
+  height: 123px;
+  left: 1486px;
+  position: absolute;
+  top: 881px;
+  width: 301px;
+}
+
+.div-wrapper .text-wrapper-21 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+  left: 102px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 41px;
+}
+
+.div-wrapper .wechatimg-3 {
+  height: 153px;
+  left: 16px;
+  position: absolute;
+  top: 0;
+  width: 163px;
+}

@@ -1,0 +1,391 @@
+.screen-3 {
+  background-color: #eef0f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.screen-3 .page-3 {
+  background-color: #eef0f0;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.screen-3 .overlap-3 {
+  height: 1080px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 795px;
+}
+
+.screen-3 .rectangle-9 {
+  background-color: #eef0f0;
+  height: 956px;
+  left: 0;
+  position: absolute;
+  top: 124px;
+  width: 795px;
+}
+
+.screen-3 .rectangle-10 {
+  background: linear-gradient(
+    180deg,
+    rgb(238, 240, 240) 0%,
+    rgb(237.15, 250.48, 250.48) 100%
+  );
+  height: 956px;
+  left: 0;
+  position: absolute;
+  top: 124px;
+  width: 795px;
+}
+
+.screen-3 .wechatimg-4 {
+  height: 153px;
+  left: 16px;
+  position: absolute;
+  top: 0;
+  width: 163px;
+}
+
+.screen-3 .mask-group-2 {
+  height: 956px;
+  left: 0;
+  position: absolute;
+  top: 124px;
+  width: 795px;
+}
+
+.screen-3 .text-wrapper-22 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 874px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 178px;
+  width: 485px;
+}
+
+.screen-3 .ellipse {
+  background-color: #ffbbbb;
+  border: 5px solid;
+  border-color: #ffffff;
+  border-image: conic-gradient(rgb(156, 254, 218.72), rgb(156, 254, 183.44)) 1;
+  border-radius: 50px;
+  box-shadow: 0px 0px 10px #00000026;
+  height: 100px;
+  left: 891px;
+  position: absolute;
+  top: 413px;
+  width: 100px;
+}
+
+.screen-3 .ellipse-2 {
+  background-color: #bbffe2;
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px #00000026;
+  height: 90px;
+  left: 896px;
+  position: absolute;
+  top: 621px;
+  width: 90px;
+}
+
+.screen-3 .ellipse-3 {
+  background-color: #ffdcbb;
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px #00000026;
+  height: 90px;
+  left: 1100px;
+  position: absolute;
+  top: 418px;
+  width: 90px;
+}
+
+.screen-3 .ellipse-4 {
+  background-color: #bbffff;
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px #00000026;
+  height: 90px;
+  left: 1100px;
+  position: absolute;
+  top: 621px;
+  width: 90px;
+}
+
+.screen-3 .ellipse-5 {
+  background-color: #fff4bb;
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px #00000026;
+  height: 90px;
+  left: 1304px;
+  position: absolute;
+  top: 418px;
+  width: 90px;
+}
+
+.screen-3 .ellipse-6 {
+  background-color: #bbceff;
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px #00000026;
+  height: 90px;
+  left: 1304px;
+  position: absolute;
+  top: 621px;
+  width: 90px;
+}
+
+.screen-3 .ellipse-7 {
+  background-color: #d1ffbb;
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px #00000026;
+  height: 90px;
+  left: 1508px;
+  position: absolute;
+  top: 418px;
+  width: 90px;
+}
+
+.screen-3 .ellipse-8 {
+  background-color: #edbbff;
+  border-radius: 45px;
+  box-shadow: 0px 0px 10px #00000026;
+  height: 90px;
+  left: 1508px;
+  position: absolute;
+  top: 621px;
+  width: 90px;
+}
+
+.screen-3 .component-4 {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgb(156, 254, 218.72) 0deg,
+    rgb(156, 254, 183.44) 360deg
+  );
+  background-color: var(--green-button);
+  border-radius: 75px;
+  height: 95px;
+  left: 1317px;
+  position: absolute;
+  top: 910px;
+  width: 301px;
+}
+
+.screen-3 .text-wrapper-23 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+  left: 54px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 27px;
+}
+
+.screen-3 .overlap-4 {
+  height: 525px;
+  left: 1697px;
+  position: absolute;
+  top: 204px;
+  width: 232px;
+}
+
+.screen-3 .group-4 {
+  height: 525px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 232px;
+}
+
+.screen-3 .overlap-group-4 {
+  height: 97px;
+  left: 0;
+  position: absolute;
+  top: 193px;
+  width: 224px;
+}
+
+.screen-3 .rectangle-11 {
+  background-color: #ffffff;
+  border-radius: 10px 0px 0px 10px;
+  height: 97px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 223px;
+}
+
+.screen-3 .text-wrapper-24 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 42px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 39px;
+  width: 80px;
+}
+
+.screen-3 .mingcute-down-line-5 {
+  height: 24px;
+  left: 156px;
+  position: absolute;
+  top: 41px;
+  width: 27px;
+}
+
+.screen-3 .line-13 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 96px;
+  width: 223px;
+}
+
+.screen-3 .text-wrapper-25 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 42px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 38px;
+  width: 80px;
+}
+
+.screen-3 .text-wrapper-26 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 42px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 135px;
+  width: 80px;
+}
+
+.screen-3 .text-wrapper-27 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 42px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 467px;
+  width: 80px;
+}
+
+.screen-3 .mingcute-down-line-6 {
+  height: 24px;
+  left: 156px;
+  position: absolute;
+  top: 40px;
+  width: 27px;
+}
+
+.screen-3 .mingcute-down-line-7 {
+  height: 27px;
+  left: 158px;
+  position: absolute;
+  top: 135px;
+  width: 24px;
+}
+
+.screen-3 .mingcute-down-line-8 {
+  height: 27px;
+  left: 158px;
+  position: absolute;
+  top: 467px;
+  width: 24px;
+}
+
+.screen-3 .line-14 {
+  height: 1px;
+  left: -8191px;
+  object-fit: cover;
+  position: absolute;
+  top: -1854px;
+  width: 215px;
+}
+
+.screen-3 .line-15 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 192px;
+  width: 223px;
+}
+
+.screen-3 .line-16 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: -1px;
+  width: 223px;
+}
+
+.screen-3 .line-17 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 524px;
+  width: 223px;
+}
+
+.screen-3 .rectangle-12 {
+  background-color: #ffffffb2;
+  border-radius: 10px 0px 0px 10px;
+  height: 69px;
+  left: 79px;
+  position: absolute;
+  top: 358px;
+  width: 144px;
+}
+
+.screen-3 .text-wrapper-28 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 111px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 311px;
+  white-space: nowrap;
+}
+
+.screen-3 .text-wrapper-29 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 111px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 380px;
+  white-space: nowrap;
+}

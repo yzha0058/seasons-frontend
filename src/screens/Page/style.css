@@ -1,0 +1,414 @@
+.page {
+  background-color: #eef0f0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.page .div {
+  background-color: #eef0f0;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.page .image {
+  height: 260px;
+  left: 874px;
+  object-fit: cover;
+  position: absolute;
+  top: 609px;
+  width: 220px;
+}
+
+.page .overlap {
+  height: 1080px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 795px;
+}
+
+.page .rectangle {
+  background-color: #eef0f0;
+  height: 956px;
+  left: 0;
+  position: absolute;
+  top: 124px;
+  width: 795px;
+}
+
+.page .rectangle-2 {
+  background: linear-gradient(
+    180deg,
+    rgb(238, 240, 240) 0%,
+    rgb(237.15, 250.48, 250.48) 100%
+  );
+  height: 956px;
+  left: 0;
+  position: absolute;
+  top: 124px;
+  width: 795px;
+}
+
+.page .wechatimg {
+  height: 153px;
+  left: 16px;
+  position: absolute;
+  top: 0;
+  width: 163px;
+}
+
+.page .mask-group {
+  height: 956px;
+  left: 0;
+  position: absolute;
+  top: 124px;
+  width: 795px;
+}
+
+.page .group {
+  height: 176px;
+  left: 45px;
+  position: absolute;
+  top: 476px;
+  width: 33px;
+}
+
+.page .text-wrapper {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.page .line {
+  height: 18px;
+  left: 12px;
+  position: absolute;
+  top: 67px;
+  width: 3px;
+}
+
+.page .img {
+  height: 18px;
+  left: 12px;
+  position: absolute;
+  top: 36px;
+  width: 3px;
+}
+
+.page .line-2 {
+  height: 44px;
+  left: 12px;
+  position: absolute;
+  top: 132px;
+  width: 3px;
+}
+
+.page .line-3 {
+  height: 18px;
+  left: 12px;
+  position: absolute;
+  top: 99px;
+  width: 3px;
+}
+
+.page .text-wrapper-2 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  left: 874px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 178px;
+  width: 485px;
+}
+
+.page .group-2 {
+  height: 426px;
+  left: 1697px;
+  position: absolute;
+  top: 204px;
+  width: 232px;
+}
+
+.page .overlap-group {
+  height: 97px;
+  left: 0;
+  position: absolute;
+  top: 193px;
+  width: 224px;
+}
+
+.page .rectangle-3 {
+  background-color: #ffffff;
+  border-radius: 10px 0px 0px 10px;
+  height: 97px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 223px;
+}
+
+.page .text-wrapper-3 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 42px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 39px;
+  width: 80px;
+}
+
+.page .mingcute-down-line {
+  height: 24px;
+  left: 156px;
+  position: absolute;
+  top: 41px;
+  width: 27px;
+}
+
+.page .line-4 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 96px;
+  width: 223px;
+}
+
+.page .text-wrapper-4 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 42px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 38px;
+  width: 80px;
+}
+
+.page .text-wrapper-5 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 42px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 135px;
+  width: 80px;
+}
+
+.page .text-wrapper-6 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 42px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 329px;
+  width: 80px;
+}
+
+.page .mingcute-down-line-2 {
+  height: 24px;
+  left: 156px;
+  position: absolute;
+  top: 40px;
+  width: 27px;
+}
+
+.page .mingcute-down-line-3 {
+  height: 27px;
+  left: 158px;
+  position: absolute;
+  top: 135px;
+  width: 24px;
+}
+
+.page .mingcute-down-line-4 {
+  height: 27px;
+  left: 158px;
+  position: absolute;
+  top: 399px;
+  width: 24px;
+}
+
+.page .line-5 {
+  height: 1px;
+  left: -8191px;
+  object-fit: cover;
+  position: absolute;
+  top: -624px;
+  width: 215px;
+}
+
+.page .line-6 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 192px;
+  width: 223px;
+}
+
+.page .line-7 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: -1px;
+  width: 223px;
+}
+
+.page .line-8 {
+  height: 1px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 386px;
+  width: 223px;
+}
+
+.page .text-wrapper-7 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 964px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 542px;
+  white-space: nowrap;
+}
+
+.page .text-wrapper-8 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 934px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 883px;
+  white-space: nowrap;
+}
+
+.page .text-wrapper-9 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 1216px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 883px;
+  white-space: nowrap;
+}
+
+.page .text-wrapper-10 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 1216px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 542px;
+  white-space: nowrap;
+}
+
+.page .text-wrapper-11 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 1488px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 542px;
+  white-space: nowrap;
+}
+
+.page .image-2 {
+  height: 260px;
+  left: 1136px;
+  position: absolute;
+  top: 269px;
+  width: 220px;
+}
+
+.page .image-3 {
+  height: 260px;
+  left: 1136px;
+  position: absolute;
+  top: 609px;
+  width: 220px;
+}
+
+.page .image-4 {
+  height: 260px;
+  left: 874px;
+  position: absolute;
+  top: 268px;
+  width: 220px;
+}
+
+.page .image-5 {
+  height: 260px;
+  left: 1398px;
+  position: absolute;
+  top: 268px;
+  width: 220px;
+}
+
+.page .component {
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    rgb(156, 254, 218.72) 0deg,
+    rgb(156, 254, 183.44) 360deg
+  );
+  background-color: var(--green-button);
+  border-radius: 75px;
+  height: 95px;
+  left: 1317px;
+  position: absolute;
+  top: 910px;
+  width: 301px;
+}
+
+.page .text-wrapper-12 {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 32px;
+  font-weight: 600;
+  left: 102px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 29px;
+}

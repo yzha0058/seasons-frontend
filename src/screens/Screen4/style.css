@@ -1,0 +1,48 @@
+.screen-4 {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.screen-4 .page-4 {
+  background-color: #ffffff;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.screen-4 .SEASONS-COLOR {
+  height: 77px;
+  left: 16799px;
+  position: absolute;
+  top: 1854px;
+  width: 2907px;
+}
+
+.screen-4 .SEASONS-COLOR-2 {
+  height: 155px;
+  left: 14168px;
+  position: absolute;
+  top: 2870px;
+  width: 5829px;
+}
+
+.screen-4 .screenshot {
+  height: 1026px;
+  left: 20080px;
+  object-fit: cover;
+  position: absolute;
+  top: 594px;
+  width: 1270px;
+}
+
+.screen-4 .mask-group-3 {
+  height: 1026px;
+  left: 325px;
+  position: absolute;
+  top: 54px;
+  width: 1270px;
+}
