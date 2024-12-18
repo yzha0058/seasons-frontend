@@ -2,10 +2,10 @@
 import React from 'react';
 import { Card, Box, Typography } from '@mui/material';
 
-const MakeupRecommendationCard = ({ image, altText, label }) => {
+const AccessoryRecommendCard = ({ image, altText, label }) => {
   return (
     <Box>
-      <Card sx={{ width: 225, height: 268, position: 'relative' }}>
+      <Card sx={{ width: 230, height: 188, position: 'relative' }}>
         <Box
           sx={{
             height: '100%',
@@ -19,7 +19,7 @@ const MakeupRecommendationCard = ({ image, altText, label }) => {
       <Box
         sx={{
           width: '100%',
-          height: 40, // Reduced height to fit the label more compactly
+          height: '100%', // Reduced height to fit the label more compactly
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -39,4 +39,4 @@ const MakeupRecommendationCard = ({ image, altText, label }) => {
   );
 };
 
-export default MakeupRecommendationCard;
+export default AccessoryRecommendCard;

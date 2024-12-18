@@ -10,7 +10,7 @@ import {
   Grid,
 } from "@mui/material";
 import React, { useState } from 'react';
-import MakeupRecommendationCard from './cards/MakeupRecommendationCard';
+import AccessoryRecommendCard from './cards/AccessoryRecommendCard';
 import { Link } from 'react-router-dom';
 
 const AccessoryRecommendation = () => {
@@ -123,7 +123,7 @@ return (
                 >
           {recommendations.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-              <MakeupRecommendationCard
+              <AccessoryRecommendCard
                 image={item.image}
                 altText={item.altText}
                 label={item.label}
