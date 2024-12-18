@@ -88,7 +88,7 @@ return (
         </Typography>
         <Typography
           position="absolute"
-          width="3100%"
+          width="750px"
           top="278px"
           left="874px"
           fontFamily="'Inter', Helvetica"
