@@ -103,7 +103,7 @@ const OutfitRecommendation = () => {
           color="black"
           fontSize="2rem"
         >
-          尝试这类风格的鞋子
+          尝试这类风格
         </Typography>
         <Box
           sx={{
