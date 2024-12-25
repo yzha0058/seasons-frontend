@@ -31,18 +31,6 @@ const BrandCard = ({ images, brandNames, positionStyles, showIcons }) => {
           alt={img.alt}
         />
       ))}
-      {brandNames.map((name, index) => (
-        <Typography
-          key={index}
-          variant="body1"
-          sx={{
-            textAlign: 'center',
-            marginBottom: index === brandNames.length - 1 ? '0px' : '10px',
-          }}
-        >
-          {/* {name} */}
-        </Typography>
-      ))}
       {showIcons && (
         <IconButton sx={{ position: 'absolute', bottom: '10px', left: '10px' }}>
           <ArrowBackIosIcon />

@@ -11,6 +11,9 @@ const OutfitBlogCard = ({
   top = '204px',
   left = '1132px',
 }) => {
+  if (!brandData) {
+    return null; // Render nothing if data is not available
+  }
   return (
     <Card
       sx={{

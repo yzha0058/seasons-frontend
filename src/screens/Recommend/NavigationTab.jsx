@@ -29,6 +29,10 @@ const navigationItems = [
     path: '/accessory-recommendation',
   },
   {
+    label: '风格穿搭',
+    path: '/style-outfit-recommendation',
+  },
+  {
     label: '穿搭推荐',
     path: '/outfit-recommendation',
   },

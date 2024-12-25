@@ -19,7 +19,7 @@ import SummaryCard from './cards/SummaryCard';
 import { Link } from 'react-router-dom';
 
 const StyleRecommendation = () => {
-  const style = "Girl"
+  const style = "Natural"
   const [outfitDataLoading, setOutfitDataLoading] = useState(true); // State to track loading status
   const [outfitDataExample, setOutfitDataExample] = useState([]); // State for outfit data
   const [shopDataLoading, setShopDataLoading] = useState([]); // State to track loading status
@@ -27,197 +27,91 @@ const StyleRecommendation = () => {
   const [hairDataLoading, setHairDataLoading] = useState([]); // State to track loading status
   const [hairDataExample, setHairDataExample] = useState([]); // State for outfit data
 
+  const[brandDataExample, setBrandDataExample] =  useState([]);
+  const[elementDataExample, setElementDataExample] =  useState([]);
+  const[keywordsDataExample, setKeywordsDataExample] =  useState([]);
 
-  const checkImageExists = async (url) => {
-    try {
-      const response = await fetch(url, { method: 'HEAD' });
-      return response.ok; // True if the image exists
-    } catch (error) {
-      console.error(`Error checking image: ${url}`, error);
-      return false;
-    }
-  };
+  useEffect(() => {
+    // Fetch the JSON data from the cloud storage
+    meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Brand/${style}/meta.json`;
+    fetch(meta_url)
+      .then(response => response.json())  // Parse the response as JSON
+      .then(data => {
+        setBrandDataExample(data);  // Set the fetched data into state
+      })
+      .catch(error => {
+        console.error('Error fetching recommendations:', error);  // Handle any errors
+      });
+  }, []); // Empty dependency array to run this effect once when the component mounts
   
-  // Sample data for multiple brand cards
-  const brandDataExample = [
-    {
-      images: [
-        { url: 'https://c.animaapp.com/VZKg7vEK/img/image@2x.png', alt: 'Image' },
-        { url: 'https://c.animaapp.com/VZKg7vEK/img/image-3@2x.png', alt: 'Image' },
-      ],
-      brandNames: ['Chanel', 'Shushu Tong'],
-    },
-    {
-      images: [
-        { url: 'https://c.animaapp.com/VZKg7vEK/img/image-1@2x.png', alt: 'Image' },
-        { url: 'https://c.animaapp.com/VZKg7vEK/img/image-8@2x.png', alt: 'Image' },
-      ],
-      brandNames: ['Miumiu', 'RUI'],
-    },
-    {
-      images: [
-        { url: 'https://c.animaapp.com/VZKg7vEK/img/image-2@2x.png', alt: 'Image' },
-        { url: 'https://c.animaapp.com/VZKg7vEK/img/image-9@2x.png', alt: 'Image' },
-      ],
-      brandNames: ['MSGM', 'Calvin Luo'],
-    },
-    // Add more items as needed
-  ];
 
-  const generateOutfitData = async (style) => {
-    const baseURL = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/${style}/StyleBloggers/`;
-    const outfitData = [];
-    let index = 1;
-
-    while (true) {
-      const url = `${baseURL}${index}.jpg`;
-      const exists = await checkImageExists(url);
-
-      if (!exists) {
-        break; // Exit loop if the image does not exist
-      }
-
-      outfitData.push({
-        name: `Item ${index}`, // You can customize the name
-        url,
-      });
-
-      index++;
-    }
-
-    return outfitData;
-  };
-  
-  // Use useEffect to fetch the data when the component mounts
   useEffect(() => {
-    const fetchOutfitData = async () => {
-      setOutfitDataLoading(true); // Start loading
-      const cachedData = localStorage.getItem('outfitData'); // Check if data is cached
+      // Fetch the JSON data from the cloud storage
+      meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/${style}/StyleBloggers/meta.json`;
+      fetch(meta_url)
+        .then(response => response.json())  // Parse the response as JSON
+        .then(data => {
+          setOutfitDataExample(data);  // Set the fetched data into state
+          setOutfitDataLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching recommendations:', error);  // Handle any errors
+        });
+    }, []); // Empty dependency array to run this effect once when the component mounts
 
-      if (cachedData) {
-        setOutfitDataExample(JSON.parse(cachedData)); // Set the dynamic shop data
-      } else {
-        const data = await generateOutfitData(style);
-        localStorage.setItem('outfitData', JSON.stringify(data)); // Cache data in localStorage
-        setOutfitDataExample(data); // Set the dynamic shop data
-      }
-      
-      setOutfitDataLoading(false); // Stop loading
-    };
+    useEffect(() => {
+      // Fetch the JSON data from the cloud storage
+      meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/${style}/Shop/meta.json`;
+      fetch(meta_url)
+        .then(response => response.json())  // Parse the response as JSON
+        .then(data => {
+          setShopDataExample(data);  // Set the fetched data into state
+          setShopDataLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching recommendations:', error);  // Handle any errors
+        });
+    }, []); // Empty dependency array to run this effect once when the component mounts
 
-    fetchOutfitData();
-  }, [style]); // Dependency array ensures the effect runs when 'style' changes
+    useEffect(() => {
+      // Fetch the JSON data from the cloud storage
+      meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/${style}/Hairstyle/meta.json`;
+      fetch(meta_url)
+        .then(response => response.json())  // Parse the response as JSON
+        .then(data => {
+          setHairDataExample(data);  // Set the fetched data into state
+          setHairDataLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching recommendations:', error);  // Handle any errors
+        });
+    }, []); // Empty dependency array to run this effect once when the component mounts
 
-  const generateShopData = async (style) => {
-    const baseURL = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/${style}/Shop/`;
-    const shopData = [];
-    let index = 1;
+    useEffect(() => {
+      // Fetch the JSON data from the cloud storage
+      meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Element/${style}/meta.json`;
+      fetch(meta_url)
+        .then(response => response.json())  // Parse the response as JSON
+        .then(data => {
+          setElementDataExample(data);  // Set the fetched data into state
+        })
+        .catch(error => {
+          console.error('Error fetching recommendations:', error);  // Handle any errors
+        });
+    }, []); // Empty dependency array to run this effect once when the component mounts
 
-    while (true) {
-      const url = `${baseURL}${index}.jpg`;
-      const exists = await checkImageExists(url);
-
-      if (!exists) {
-        break; // Exit loop if the image does not exist
-      }
-
-      shopData.push({
-        name: `Item ${index}`, // You can customize the name
-        url,
-      });
-
-      index++;
-    }
-
-    return shopData;
-  };
-
-  // Use useEffect to fetch the data when the component mounts
-  useEffect(() => {
-    const fetchShopData = async () => {
-      setShopDataLoading(true); // Start loading
-      const cachedData = localStorage.getItem('shopData'); // Check if data is cached
-
-      if (cachedData) {
-        setShopDataExample(JSON.parse(cachedData)); // Set data from cache
-      } else {
-        const data = await generateShopData(style); // Fetch new data
-        localStorage.setItem('shopData', JSON.stringify(data)); // Cache new data
-        setShopDataExample(data); // Update state with fetched data
-      }
-
-      setShopDataLoading(false); // Stop loading
-    };
-
-    fetchShopData();
-  }, [style]); // Dependency array ensures the effect runs when 'style' changes
-
-  const generateHairData = async (style) => {
-    const baseURL = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/${style}/Hairstyle/`;
-    const hairData = [];
-    let index = 1;
-
-    while (true) {
-      const url = `${baseURL}${index}.jpg`;
-      const exists = await checkImageExists(url);
-
-      if (!exists) {
-        break; // Exit loop if the image does not exist
-      }
-
-      hairData.push({
-        name: `Item ${index}`, // You can customize the name
-        url,
-      });
-
-      index++;
-    }
-
-    return hairData;
-  };
-
-  // Use useEffect to fetch the data when the component mounts
-  useEffect(() => {
-    const fetchHairData = async () => {
-      setHairDataLoading(true); // Start loading
-      const cachedData = localStorage.getItem('hairData'); // Check if data is cached
-
-      if (cachedData) {
-        setHairDataExample(JSON.parse(cachedData)); // Set data from cache
-      } else {
-        const data = await generateHairData(style); // Fetch new data
-        localStorage.setItem('hairData', JSON.stringify(data)); // Cache new data
-        setHairDataExample(data); // Update state with fetched data
-      }
-
-      setHairDataLoading(false); // Stop loading
-    };
-
-    fetchHairData();
-  }, [style]); // Dependency array ensures the effect runs when 'style' changes
-
-  const elementDataExample = [
-    {
-      name: '蕾丝',
-    },
-    {
-      name: 'A字短裙',
-    },
-    {
-      name: '蝴蝶结',
-    },
-    {
-      name: '蝴蝶结',
-    },
-  ];
-
-  const keywordsDataExample = [
-    {
-      name: "少女感",
-      explain: '曲线型，小量感',
-      keywords: 'BM / JK / 纯欲风 / 公主萝莉风 / 甜酷偏甜 / 富家千金风 / 芭蕾风',
-    },
-  ];
+    useEffect(() => {
+      // Fetch the JSON data from the cloud storage
+      meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Keyword/${style}/meta.json`;
+      fetch(meta_url)
+        .then(response => response.json())  // Parse the response as JSON
+        .then(data => {
+          setKeywordsDataExample(data);  // Set the fetched data into state
+        })
+        .catch(error => {
+          console.error('Error fetching recommendations:', error);  // Handle any errors
+        });
+    }, []); // Empty dependency array to run this effect once when the component mounts
 
   return (
     <Box
@@ -307,12 +201,14 @@ const StyleRecommendation = () => {
               "conic-gradient(from 180deg at 50% 50%, rgb(156,254,218.72) 0deg, rgb(156,254,183.44) 360deg)",
           }}
         >
-          <Typography
-            variant="h6"
-            sx={{ position: "absolute", top: "13px", left: "69px" }}
-          >
-            少女感
-          </Typography>
+          {keywordsDataExample && keywordsDataExample.length > 0 && (
+            <Typography
+              variant="h6"
+              sx={{ position: "absolute", top: "13px", left: "69px" }}
+            >
+              {keywordsDataExample[0].name}
+            </Typography>
+          )}
         </Box>
 
 

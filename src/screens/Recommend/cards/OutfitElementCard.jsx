@@ -13,6 +13,10 @@ const OutfitElementCard = ({
   top = '0px',
   left = '0px',
 }) => {
+  if (!brandData) {
+    return null; // Render nothing if data is not available
+  }
+
   const [startIndex, setStartIndex] = useState(0);
   const visibleCount = 3;
   const tagWidth = 180;

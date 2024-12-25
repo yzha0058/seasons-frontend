@@ -131,7 +131,7 @@ return (
             </Grid>
           ))}
         </Grid>
-      <Link to="/outfit-recommendation" style={{ textDecoration: 'none' }}>
+      <Link to="/style-outfit-recommendation" style={{ textDecoration: 'none' }}>
         <Button
           variant="contained"
           sx={{

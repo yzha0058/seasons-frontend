@@ -14,128 +14,51 @@ import {
   Tabs,
   Tab,
 } from "@mui/material";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import OutfitRecommendationCard from './cards/OutfitRecommendationCard';
+import OutfitCard from './cards/OutfitCard';
 import { Link } from 'react-router-dom';
 
 const OutfitRecommendation = () => {
+  const style = "A";
+  const leg_style = "Normal-leg"
   const [activeTab, setActiveTab] = useState('上衣');
+  const[coatExample, setCoatExample] =  useState([]);
+  const[pantsExample, setPantsExample] =  useState([]);
+
+  useEffect(() => {
+      // Fetch the JSON data from the cloud storage
+      meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Body/${style}/meta.json`;
+      fetch(meta_url)
+        .then(response => response.json())  // Parse the response as JSON
+        .then(data => {
+          setCoatExample(data);  // Set the fetched data into state
+        })
+        .catch(error => {
+          console.error('Error fetching recommendations:', error);  // Handle any errors
+        });
+    }, []); // Empty dependency array to run this effect once when the component mounts
+  
+    useEffect(() => {
+      // Fetch the JSON data from the cloud storage
+      meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Body/${leg_style}/meta.json`;
+      fetch(meta_url)
+        .then(response => response.json())  // Parse the response as JSON
+        .then(data => {
+          setPantsExample(data);  // Set the fetched data into state
+        })
+        .catch(error => {
+          console.error('Error fetching recommendations:', error);  // Handle any errors
+        });
+    }, []); // Empty dependency array to run this effect once when the component mounts
 
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue);
   };
 
-  // Example data for the recommendation cards
-  const recommendations = [
-    {
-      image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      altText: "穿搭1",
-      label: "穿搭1",
-    },
-    {
-      image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      altText: "穿搭2",
-      label: "穿搭2",
-    },
-    {
-      image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      altText: "穿搭3",
-      label: "穿搭3",
-    },
-    {
-      image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      altText: "穿搭4",
-      label: "穿搭4",
-    },
-    {
-      image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      altText: "穿搭5",
-      label: "穿搭5",
-    },
-    {
-      image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      altText: "穿搭6",
-      label: "穿搭6",
-    },
-    {
-      image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      altText: "穿搭7",
-      label: "穿搭7",
-    },
-    {
-      image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      altText: "穿搭8",
-      label: "穿搭8",
-    },
-    {
-      image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      altText: "穿搭9",
-      label: "穿搭9",
-    },
-    // Add more items as needed
-  ];
-
   const data = {
-    上衣: [
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "上衣推荐1", 
-        label: "上衣1" 
-      },
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "上衣推荐2", 
-        label: "上衣2" 
-      },
-    ],
-    外套: [
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "外套推荐1", 
-        label: "外套1" 
-      },
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "外套推荐2", 
-        label: "外套2" 
-      },
-    ],
-    裤装: [
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "裤装推荐1", 
-        label: "裤装1" 
-      },
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "裤装推荐2", 
-        label: "裤装2" 
-      },
-    ],
-    裙装: [
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "裙装推荐1", 
-        label: "裙装1" 
-      },
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "裙装推荐2", 
-        label: "裙装2" 
-      },
-    ],
-    鞋履: [
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "鞋履推荐1", 
-        label: "鞋履1" 
-      },
-      { 
-        image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png", 
-        altText: "鞋履推荐2", 
-        label: "鞋履2" 
-      },
-    ],
+    上衣: coatExample,
+    裤装: pantsExample,
   };
   
 
@@ -215,10 +138,10 @@ const OutfitRecommendation = () => {
                   justifyContent: 'center',
                 }}
               >
-                <OutfitRecommendationCard
-                  image={item.image}
-                  altText={item.altText}
-                  label={item.label}
+                <OutfitCard
+                  image={item.url}
+                  altText={""}
+                  label={item.name}
                 />
               </Grid>
             ))}
@@ -229,7 +152,7 @@ const OutfitRecommendation = () => {
         <Box
           sx={{
             position: 'absolute',
-            top: '648px',
+            top: '748px',
             right: '-80px',
             width: '250px',
             // borderRadius: '8px',
@@ -270,7 +193,7 @@ const OutfitRecommendation = () => {
         </Box>
 
 
-        <Typography
+        {/* <Typography
           position="absolute"
           width="140px"
           top="186px"
@@ -281,7 +204,7 @@ const OutfitRecommendation = () => {
           fontSize="1.2rem"
         >
           关键词：少女感
-        </Typography>
+        </Typography> */}
       </Box>
     </Box>
   );

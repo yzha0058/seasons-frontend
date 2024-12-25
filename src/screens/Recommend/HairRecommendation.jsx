@@ -13,60 +13,26 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HairRecommendationCard from './cards/HairRecommendationCard';
 import { Link } from 'react-router-dom';
 
 const HairRecommendation = () => {
-    // Example data for the recommendation cards
-    const recommendations = [
-      // {
-      //   image: "https://c.animaapp.com/K95331Bc/img/rectangle-65@2x.png",
-      //   altText: "小卷发",
-      //   label: "小卷发",
-      // },
-      {
-        image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/Girl/Hairstyle/1.jpg",
-        altText: "小卷发",
-        label: "小卷发",
-      },
-      {
-        image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/Girl/Hairstyle/2.jpg",
-        altText: "大卷发",
-        label: "大卷发",
-      },
-      {
-        image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/Girl/Hairstyle/3.jpg",
-        altText: "直发",
-        label: "直发",
-      },
-      {
-        image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/Girl/Hairstyle/4.jpg",
-        altText: "小卷发",
-        label: "小卷发",
-      },
-      {
-        image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/Girl/Hairstyle/5.jpg",
-        altText: "大卷发",
-        label: "大卷发",
-      },
-      {
-        image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/Girl/Hairstyle/6.jpg",
-        altText: "直发",
-        label: "直发",
-      },
-      {
-        image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/Girl/Hairstyle/7.jpg",
-        altText: "直发",
-        label: "直发",
-      },
-      {
-        image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/Girl/Hairstyle/8.jpg",
-        altText: "直发",
-        label: "直发",
-      },
-      // Add more items as needed
-    ];
+  const [recommendations, setRecommendations] = useState([]);
+  const style = "Girl";
+
+  useEffect(() => {
+    // Fetch the JSON data from the cloud storage
+    meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/recommendation/${style}/Hairstyle/meta.json`;
+    fetch(meta_url)
+      .then(response => response.json())  // Parse the response as JSON
+      .then(data => {
+        setRecommendations(data);  // Set the fetched data into state
+      })
+      .catch(error => {
+        console.error('Error fetching recommendations:', error);  // Handle any errors
+      });
+  }, []); // Empty dependency array to run this effect once when the component mounts
 
   return (
     <Box
@@ -133,9 +99,9 @@ const HairRecommendation = () => {
           {recommendations.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
               <HairRecommendationCard
-                image={item.image}
-                altText={item.altText}
-                label={item.label}
+                image={item.url}
+                altText={""}
+                label={item.name}
               />
             </Grid>
           ))}
@@ -161,7 +127,7 @@ const HairRecommendation = () => {
             下一步：妆容
           </Button>
         </Link>
-        <Typography
+        {/* <Typography
           position="absolute"
           width="140px"
           top="186px"
@@ -172,7 +138,7 @@ const HairRecommendation = () => {
           fontSize="1.2rem"
         >
           关键词：少女感
-        </Typography>
+        </Typography> */}
     </Box></Box>
  
   );

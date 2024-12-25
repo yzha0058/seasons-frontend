@@ -10,6 +10,10 @@ const SummaryCard = ({
   top = '0px',
   left = '0px',
 }) => {
+  if (!data) {
+    return null; // Render nothing if data is not available
+  }
+  
   return (
     <Card
       sx={{

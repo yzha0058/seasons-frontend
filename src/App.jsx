@@ -18,6 +18,7 @@ import StyleRecommendation from './screens/Recommend/StyleRecommendation';
 import HairRecommendation from './screens/Recommend/HairRecommendation';
 import MakeupRecommendation from './screens/Recommend/MakeupRecommendation';
 import AccessoryRecommendation from "./screens/Recommend/AccessoryRecommendation";
+import StyleOutfitRecommendation from "./screens/Recommend/StyleOutfitRecommendation";
 import OutfitRecommendation from './screens/Recommend/OutfitRecommendation';
 import GeneratePDF from './screens/generatePDF'
 // import { Screen9 } from "./screens/Screen9";
@@ -113,6 +114,11 @@ export const App = () => {
       // 推荐页
       path: "/accessory-recommendation",
       element: <AccessoryRecommendation/>,
+    },
+    {
+      // 推荐页
+      path: "/style-outfit-recommendation",
+      element: <StyleOutfitRecommendation/>,
     },
     {
       // 推荐页

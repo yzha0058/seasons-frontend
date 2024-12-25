@@ -14,6 +14,10 @@ const HairRecommendationCardSmall = ({
   top = '204px',
   left = '1132px',
 }) => {
+  if (!brandData) {
+    return null; // Render nothing if data is not available
+  }
+
   const [startIndex, setStartIndex] = useState(0);
   const visibleCount = 2.5; // Number of items visible at a time
   const cardWidth = 180; // Fixed width for each scrollable item

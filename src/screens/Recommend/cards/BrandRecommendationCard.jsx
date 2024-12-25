@@ -16,6 +16,10 @@ const BrandRecommendationCard = ({
   left = '597px', //Default left pad
   borderRadius = '16px 0px 16px 0px', // Default radius
 }) => {
+  if (!brandData) {
+    return null; // Render nothing if data is not available
+  }
+  
   const [startIndex, setStartIndex] = useState(0);
   const cardWidth = 160;
   const maxTranslateX = (brandData.length - visibleCount) * cardWidth;
@@ -88,7 +92,7 @@ const BrandRecommendationCard = ({
               <BrandCard
                 key={index}
                 images={brand.images}
-                brandNames={brand.brandNames}
+                brandNames={""}
                 positionStyles={{
                   width: '150px',
                   height: '237px',
