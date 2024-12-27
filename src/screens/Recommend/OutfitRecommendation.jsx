@@ -192,6 +192,28 @@ const OutfitRecommendation = () => {
           })}
         </Box>
 
+        <Link to="/report" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+            sx={{
+              position: "absolute",
+              width: 301,
+              height: 95,
+              top: 935,
+              left: 1600,
+              borderRadius: "75px",
+              background:
+                "conic-gradient(from 180deg at 50% 50%, rgb(156,254,218.72) 0deg, rgb(156,254,183.44) 360deg)",
+              color: "black",
+              fontSize: "2rem",
+              fontWeight: "bold",
+              fontFamily: "'Inter', Helvetica",
+            }}
+          >
+            生成报告
+          </Button>
+        </Link>
+
 
         {/* <Typography
           position="absolute"

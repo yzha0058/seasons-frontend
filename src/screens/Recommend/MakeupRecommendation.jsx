@@ -131,6 +131,22 @@ const MakeupRecommendation = () => {
     setShowQuestionPage(false); // Transition to the main content
   };
 
+  // Map labels to their corresponding image URLs
+  const imageUrls = {
+    "亮春": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangChun.jpg",
+    "柔春": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/RouChun.jpg",
+    "浅春": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/QianChun.jpg",
+    "亮夏": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangXia.jpg",
+    "柔夏": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/RouXia.jpg",
+    "浅夏": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/QianXia.jpg",
+    "亮秋": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangQiu.jpg",
+    "柔秋": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/RouQiu.jpg",
+    "深秋": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/ShenQiu.jpg",
+    "亮冬": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangDong.jpg",
+    "浅冬": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/QianDong.jpg",
+    "深冬": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/ShenDong.jpg",
+  };
+
   if (showQuestionPage) {
     return (
       <Box
@@ -325,26 +341,43 @@ const MakeupRecommendation = () => {
         </Typography>
         <Grid
           container
-          spacing={2} // Adjust spacing as needed
           position="absolute"
           top="255px"
           left="864px"
           sx={{
-            maxWidth: '700px', // Set the maximum width for the entire grid
+            maxWidth: '700px', // Set the maximum width for the grid
             width: '100%',      // Ensures grid doesn’t exceed maxWidth
+            height: '600px',    // Set a fixed height for the grid
             margin: '0 auto',   // Center-aligns the grid within its container
+            overflow: 'hidden', // Prevent content overflow
           }}
         >
-          {recommendations.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-              <MakeupRecommendationCard
-                image={item.image}
-                altText={item.altText}
-                label={item.label}
-              />
-            </Grid>
-          ))}
+          <Grid
+            item
+            xs={12}
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-start', // Align the image to the top of the grid
+              alignItems: 'flex-start',    // Align the image to the top of the grid
+              height: '100%',
+              overflowY: 'scroll', // Enable vertical scrolling
+              scrollbarWidth: 'none', // Hide scrollbar for Firefox
+              '&::-webkit-scrollbar': { display: 'none' }, // Hide scrollbar for WebKit browsers
+            }}
+          >
+            <img
+              src={imageUrls[selectedLabel]} // Dynamically update the URL based on selectedLabel
+              alt={selectedLabel || "Recommendation"} // Provide meaningful alt text
+              style={{
+                width: '100%', // Make the image fill the grid width
+                height: 'auto', // Maintain aspect ratio
+                borderRadius: '8px', // Optional: Add some styling like rounded corners
+                objectFit: 'contain', // Ensures the image fits within its container proportionally
+              }}
+            />
+          </Grid>
         </Grid>
+
         <Link to="/accessory-recommendation" style={{ textDecoration: 'none' }}>
           <Button
             variant="contained"

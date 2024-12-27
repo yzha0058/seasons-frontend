@@ -9,39 +9,26 @@ import {
   Typography,
   Grid,
 } from "@mui/material";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AccessoryRecommendCard from './cards/AccessoryRecommendCard';
 import { Link } from 'react-router-dom';
 
 const AccessoryRecommendation = () => {
-  // Example data for the recommendation cards
-  const recommendations = [
-    {
-      image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Glass/Egg/1.jpg",
-      label: "",
-    },
-    {
-      image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Glass/Egg/2.jpg",
-      label: "",
-    },
-    {
-      image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Glass/Egg/3.jpg",
-      label: "",
-    },
-    {
-      image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Glass/Egg/4.jpg",
-      label: "",
-    },
-    {
-      image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Glass/Egg/5.jpg",
-      label: "",
-    },
-    {
-      image: "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Glass/Egg/6.jpg",
-      label: "",
-    },
-    // Add more items as needed
-  ];
+  const style = "Egg";
+  const[recommendations, setRecommendations] =  useState([]);
+
+  useEffect(() => {
+        // Fetch the JSON data from the cloud storage
+        meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Glass/${style}/meta.json`;
+        fetch(meta_url)
+          .then(response => response.json())  // Parse the response as JSON
+          .then(data => {
+            setRecommendations(data);  // Set the fetched data into state
+          })
+          .catch(error => {
+            console.error('Error fetching recommendations:', error);  // Handle any errors
+          });
+      }, []); // Empty dependency array to run this effect once when the component mounts
 
 return (
   <Box
@@ -86,7 +73,7 @@ return (
         >
           配饰推荐
         </Typography>
-        <Typography
+        {/* <Typography
           position="absolute"
           width="750px"
           top="278px"
@@ -97,7 +84,7 @@ return (
           fontSize="1.5rem"
         >
           属于标准脸型，一般来说可以佩戴任何款式的眼镜。
-        </Typography>
+        </Typography> */}
         <Grid
                   container
                   spacing={2} // Adjust spacing as needed
@@ -124,9 +111,9 @@ return (
           {recommendations.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
               <AccessoryRecommendCard
-                image={item.image}
-                altText={item.altText}
-                label={item.label}
+                image={item.url}
+                altText={""}
+                label={item.name}
               />
             </Grid>
           ))}

@@ -5,7 +5,7 @@ import { Card, Box, Typography } from '@mui/material';
 const MakeupRecommendationCard = ({ image, altText, label }) => {
   return (
     <Box>
-      <Card sx={{ width: 225, height: 268, position: 'relative' }}>
+      <Card sx={{ width: 425, height: 768, position: 'relative' }}>
         <Box
           sx={{
             height: '100%',

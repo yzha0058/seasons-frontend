@@ -3,6 +3,9 @@ import React from 'react';
 import { Card, Box, Typography } from '@mui/material';
 
 const AccessoryRecommendCard = ({ image, altText, label }) => {
+  if (!image) {
+    return null; // Render nothing if data is not available
+  }
   return (
     <Box>
       <Card sx={{ width: 230, height: 188, position: 'relative' }}>

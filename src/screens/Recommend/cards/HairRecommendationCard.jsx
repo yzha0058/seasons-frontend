@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import { Card, CardMedia, CardContent, Typography, Box, Modal  } from '@mui/material';
 
 const HairRecommendationCard = ({ image, altText, label }) => {
+  if (!image) {
+    return null; // Render nothing if data is not available
+  }
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
