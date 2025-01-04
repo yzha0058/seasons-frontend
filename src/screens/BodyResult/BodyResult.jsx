@@ -20,16 +20,25 @@ export const BodyResult = () => {
               <h2>Body Shape Info</h2>
               <div className="api-section">
                 <p>
-                  <strong>上下半身比例:</strong> {apiResponse.body_shape_info?.上下半身比例}
+                  <strong>上下半身比例:</strong> {apiResponse.body_shape_info?.["上下半身比例"]}
                 </p>
                 <p>
-                  <strong>头肩比:</strong> {apiResponse.body_shape_info?.头肩比}
+                  <strong>头肩比:</strong> {apiResponse.body_shape_info?.["头肩比"]}
                 </p>
                 <p>
-                  <strong>头肩比判断:</strong> {apiResponse.body_shape_info?.头肩比判断}
+                  <strong>头肩比判断:</strong> {apiResponse.body_shape_info?.["头肩比判断"]}
                 </p>
                 <p>
-                  <strong>比例判断:</strong> {apiResponse.body_shape_info?.比例判断}
+                  <strong>比例判断:</strong> {apiResponse.body_shape_info?.["身材比例判断"]}
+                </p>
+                <p>
+                  <strong>三围比例:</strong> {apiResponse.three_d_model_info?.["三围比例"]}
+                </p>
+                <p>
+                  <strong>身材类型:</strong> {apiResponse.three_d_model_info?.["身材类型"]}
+                </p>
+                <p>
+                  <strong>腿型:</strong> {apiResponse.three_d_model_info?.["腿型"]}
                 </p>
               </div>
             </div>
