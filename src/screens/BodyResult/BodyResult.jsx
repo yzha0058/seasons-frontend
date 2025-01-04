@@ -6,6 +6,8 @@ export const BodyResult = () => {
   const location = useLocation();
   const { capturedImage, apiResponse } = location.state || {};
 
+  console.log(apiResponse);
+  
   return (
     <div className="screen-5">
       <div className="page-5">
