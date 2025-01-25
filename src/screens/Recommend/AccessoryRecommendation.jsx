@@ -14,7 +14,7 @@ import AccessoryRecommendCard from './cards/AccessoryRecommendCard';
 import { Link } from 'react-router-dom';
 
 const AccessoryRecommendation = () => {
-  const style = "Egg";
+  const style = "iTrangle";
   const[recommendations, setRecommendations] =  useState([]);
 
   useEffect(() => {

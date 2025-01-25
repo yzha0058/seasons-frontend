@@ -87,7 +87,7 @@ export const App = () => {
     },
     {
       // 补充回答
-      path: "/page-36",
+      path: "/additional",
       element: <Screen8 />,
     },
     // {

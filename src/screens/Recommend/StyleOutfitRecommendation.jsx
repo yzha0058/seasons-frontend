@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 
 const StyleOutfitRecommendation = () => {
     const [recommendations, setRecommendations] = useState([]);
-    const style = "Curve";
+    const style = "Straight";
   
     useEffect(() => {
       // Fetch the JSON data from the cloud storage

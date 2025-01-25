@@ -7,7 +7,6 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const ShopRecommendationCard = ({
   title,
   brandData,
-  loading = false, // Default loading state
   width = '500px',
   height = '823px',
   position = 'relative',
@@ -18,21 +17,8 @@ const ShopRecommendationCard = ({
     return null; // Render nothing if data is not available
   }
 
-  const [startIndex, setStartIndex] = useState(0);
-  const visibleCount = 2.5; // Number of items visible at a time
   const cardWidth = 200; // Fixed width for each scrollable item
   const cardHeight = 400; // Fixed height for each scrollable item
-  const maxTranslateX = (brandData.length - visibleCount) * cardWidth;
-
-  const handlePrev = () => {
-    setStartIndex((prevIndex) => Math.max(prevIndex - visibleCount, 0));
-  };
-
-  const handleNext = () => {
-    setStartIndex((prevIndex) =>
-      Math.min(prevIndex + visibleCount, brandData.length - visibleCount)
-    );
-  };
 
   return (
     <Card
@@ -54,91 +40,48 @@ const ShopRecommendationCard = ({
       >
         {title}
       </Typography>
-      {loading ? (
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: '100%',
-                }}
-              >
-                <CircularProgress />
-              </Box>
-            ) : (
+
       <Box
         sx={{
           display: 'flex',
-          overflow: 'hidden',
-          position: 'relative',
-          width: `${visibleCount * cardWidth}px`, // Fixed width for scroll container
-          margin: '0 auto',
+          overflowX: 'auto',
+          whiteSpace: 'nowrap',
+          scrollBehavior: 'smooth',
+          gap: '20px',
+          width: '100%',
+          paddingBottom: '10px',
+          '&::-webkit-scrollbar': {
+            display: 'none', // Hide scrollbar for Webkit browsers
+          },
+          msOverflowStyle: 'none', // Hide scrollbar for IE/Edge
+          scrollbarWidth: 'none', // Hide scrollbar for Firefox
         }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            transform: `translateX(-${Math.min(
-              startIndex * cardWidth,
-              maxTranslateX
-            )}px)`,
-            transition: 'transform 0.3s ease-in-out',
-          }}
-        >
-          {brandData.map((item, index) => (
+        {brandData.map((item, index) => (
+          <Box
+            key={index}
+            sx={{
+              flex: '0 0 auto',
+              width: `${cardWidth}px`, // Fixed width for each item
+              height: `${cardHeight}px`, // Fixed height for each item
+              textAlign: 'center',
+              position: 'relative',
+            }}
+          >
             <Box
-              key={index}
+              component="img"
+              src={item.url}
+              alt={item.name}
               sx={{
-                width: `${cardWidth}px`, // Fixed width for each item
-                height: `${cardHeight}px`, // Fixed height for each item
-                textAlign: 'center',
-                position: 'relative',
-                marginRight: '20px',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '8px',
               }}
-            >
-              <Box
-                component="img"
-                src={item.url}
-                alt={item.name}
-                sx={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: '8px',
-                }}
-              />
-            </Box>
-          ))}
-        </Box>
+            />
+          </Box>
+        ))}
       </Box>
-      )}
-      {/* Navigation Buttons - Centered Vertically */}
-      <IconButton
-        onClick={handlePrev}
-        disabled={startIndex === 0}
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '10px',
-          transform: 'translateY(-50%)',
-          zIndex: 1,
-        }}
-      >
-        <ArrowBackIosIcon />
-      </IconButton>
-      <IconButton
-        onClick={handleNext}
-        disabled={startIndex * cardWidth >= maxTranslateX}
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          right: '10px',
-          transform: 'translateY(-50%)',
-          zIndex: 1,
-        }}
-      >
-        <ArrowForwardIosIcon />
-      </IconButton>
     </Card>
   );
 };

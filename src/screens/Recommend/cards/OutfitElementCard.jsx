@@ -13,22 +13,11 @@ const OutfitElementCard = ({
   top = '0px',
   left = '0px',
 }) => {
-  if (!brandData) {
+  if (!brandData.length) {
     return null; // Render nothing if data is not available
   }
 
-  const [startIndex, setStartIndex] = useState(0);
-  const visibleCount = 3;
-  const tagWidth = 180;
-  const maxTranslateX = (brandData.length - visibleCount) * tagWidth;
-
-  const handlePrev = () => {
-    setStartIndex((prevIndex) => Math.max(prevIndex - visibleCount, 0));
-  };
-
-  const handleNext = () => {
-    setStartIndex((prevIndex) => Math.min(prevIndex + visibleCount, brandData.length - visibleCount));
-  };
+  const tagWidth = 180; // Fixed width for each scrollable tag
 
   return (
     <Card
@@ -55,78 +44,49 @@ const OutfitElementCard = ({
       <Box
         sx={{
           display: 'flex',
-          overflow: 'hidden',
-          width: `${visibleCount * tagWidth}px`,
-          justifyContent: 'center',
-          position: 'relative',
-          paddingLeft: '250px', // Add padding to prevent clipping
+          overflowX: 'auto',
+          whiteSpace: 'nowrap',
+          scrollBehavior: 'smooth',
+          gap: '20px',
+          width: '100%',
+          paddingBottom: '10px',
+          '&::-webkit-scrollbar': {
+            display: 'none', // Hide scrollbar for Webkit browsers
+          },
+          msOverflowStyle: 'none', // Hide scrollbar for IE/Edge
+          scrollbarWidth: 'none', // Hide scrollbar for Firefox
         }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            transform: `translateX(-${Math.max(0, Math.min(startIndex * tagWidth, maxTranslateX))}px)`,
-            transition: 'transform 0.3s ease-in-out',
-          }}
-        >
-          {brandData.map((item, index) => (
+        {brandData.map((item, index) => (
+          <Box
+            key={index}
+            sx={{
+              flex: '0 0 auto',
+              width: `${tagWidth}px`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+            }}
+          >
             <Box
-              key={index}
               sx={{
-                width: `${tagWidth}px`,
+                width: '146px',
+                height: '44px',
+                borderRadius: '65px',
+                background: 'conic-gradient(from 180deg at 50% 50%, rgb(156,254,218.72) 0deg, rgb(156,254,183.44) 360deg)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                position: 'relative',
               }}
             >
-              <Box
-                sx={{
-                  width: '146px',
-                  height: '44px',
-                  borderRadius: '65px',
-                  background: 'conic-gradient(from 180deg at 50% 50%, rgb(156,254,218.72) 0deg, rgb(156,254,183.44) 360deg)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <Typography variant="subtitle1" sx={{ color: 'black' }}>
-                  {item.name}
-                </Typography>
-              </Box>
+              <Typography variant="subtitle1" sx={{ color: 'black' }}>
+                {item.name}
+              </Typography>
             </Box>
-          ))}
-        </Box>
+          </Box>
+        ))}
       </Box>
-
-      {/* Navigation Buttons */}
-      <IconButton
-        onClick={handlePrev}
-        disabled={startIndex === 0}
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '10px',
-          transform: 'translateY(-50%)',
-          zIndex: 1,
-        }}
-      >
-        <ArrowBackIosIcon />
-      </IconButton>
-      <IconButton
-        onClick={handleNext}
-        disabled={startIndex * tagWidth >= maxTranslateX}
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          right: '10px',
-          transform: 'translateY(-50%)',
-          zIndex: 1,
-        }}
-      >
-        <ArrowForwardIosIcon />
-      </IconButton>
     </Card>
   );
 };

@@ -20,8 +20,8 @@ import OutfitCard from './cards/OutfitCard';
 import { Link } from 'react-router-dom';
 
 const OutfitRecommendation = () => {
-  const style = "A";
-  const leg_style = "Normal-leg"
+  const style = "X";
+  const leg_style = "XO-leg"
   const [activeTab, setActiveTab] = useState('上衣');
   const[coatExample, setCoatExample] =  useState([]);
   const[pantsExample, setPantsExample] =  useState([]);
