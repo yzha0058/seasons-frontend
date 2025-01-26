@@ -150,13 +150,20 @@ const MakeupRecommendation = () => {
   if (showQuestionPage) {
     return (
       <Box
+      sx={{
+        backgroundColor: "#eef0f0",
+        display: "flex",
+        justifyContent: "center",
+        width: "100%",
+      }}
+    >
+      <Box
         sx={{
           backgroundColor: "#eef0f0",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100vh",
+          overflow: "hidden",
+          width: "1920px",
+          height: "1080px",
+          position: "relative",
         }}
       >
         <NavigationTab />
@@ -292,6 +299,7 @@ const MakeupRecommendation = () => {
             跳过
           </Button>
         </Link>
+        </Box>
       </Box>
     );
   }

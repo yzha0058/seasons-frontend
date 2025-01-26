@@ -14,8 +14,22 @@ import AccessoryRecommendCard from './cards/AccessoryRecommendCard';
 import { Link } from 'react-router-dom';
 
 const AccessoryRecommendation = () => {
-  const style = "iTrangle";
+  const style = "Round";
   const[recommendations, setRecommendations] =  useState([]);
+  const [keywordsDataExample, setKeywordsDataExample] = useState([{ name: '', explain: '' }]);
+
+  useEffect(() => {
+        // Fetch the JSON data from the cloud storage
+        meta_url = `https://yzha-seasons.oss-cn-beijing.aliyuncs.com/Glass/${style}/keywords.json`;
+        fetch(meta_url)
+          .then(response => response.json())  // Parse the response as JSON
+          .then(data => {
+            setKeywordsDataExample(data);  // Set the fetched data into state
+          })
+          .catch(error => {
+            console.error('Error fetching recommendations:', error);  // Handle any errors
+          });
+      }, []); // Empty dependency array to run this effect once when the component mounts
 
   useEffect(() => {
         // Fetch the JSON data from the cloud storage
@@ -71,9 +85,9 @@ return (
           color="black"
           fontSize="2rem"
         >
-          配饰推荐
+          {keywordsDataExample[0].name}
         </Typography>
-        {/* <Typography
+        <Typography
           position="absolute"
           width="750px"
           top="278px"
@@ -83,8 +97,8 @@ return (
           color="black"
           fontSize="1.5rem"
         >
-          属于标准脸型，一般来说可以佩戴任何款式的眼镜。
-        </Typography> */}
+          {keywordsDataExample[0].explain}
+        </Typography>
         <Grid
                   container
                   spacing={2} // Adjust spacing as needed
