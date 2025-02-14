@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./style.css";
 import { Link } from "react-router-dom";
 
 export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse }) => {
   const navigate = useNavigate();
+  const location = useLocation(); // Get passed data
+  const { customerHeight, customerChest, customerWaist, customerHips } = location.state || {}; // Extract data safely
+
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const [countdown, setCountdown] = useState(0); // State for countdown
@@ -33,6 +36,7 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse }) => {
   }, []);
 
   const captureAndNavigate = async () => {
+    // console.log(height, chest, waist, hips);
     if (videoRef.current && canvasRef.current) {
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d");
@@ -45,12 +49,26 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse }) => {
       const base64Image = canvas.toDataURL("image/png");
 
       try {
+        // Ensure dropdown values are valid
+        console.log("🔹 Sending Data:", {
+          image: base64Image,
+          customerHeight,
+          customerChest,
+          customerWaist,
+          customerHips,
+        });
+
         const response = await fetch("http://localhost:5000/body-analyze", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ image: base64Image }),
+          body: JSON.stringify({ 
+            image: base64Image, 
+            height: customerHeight, 
+            chest: customerChest, 
+            waist: customerWaist, 
+            hips: customerHips }),
         });
 
         const data = await response.json();

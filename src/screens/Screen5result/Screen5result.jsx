@@ -13,7 +13,13 @@ export const Screen5result = () => {
       <div className="page-5">
         <img className="vector" alt="Vector" src="/img/vector-2-1.svg" />
         <img className="vector-2" alt="Vector" src="/img/vector-3-1.svg" />
-        <img className="wechatimg-5" alt="Wechatimg" src="/img/wechatimg257-removebg-1-4.svg" />
+        <Link className="component-5" to="/">
+            <img
+                className="wechatimg-5"
+                alt="Wechatimg"
+                src="/img/wechatimg257-removebg-1-4.svg"
+            />
+        </Link>
 
         {/* Left Sidebar for API Response */}
         
@@ -76,7 +82,7 @@ export const Screen5result = () => {
           )}
         </div>
 
-        <Link className="component-5" to="/body-det">
+        <Link className="component-5" to="/body-input">
           <div className="component-2">
             <div className="text-wrapper-15">下一步</div>
           </div>

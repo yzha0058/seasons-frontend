@@ -11,6 +11,7 @@ import { Screen5result } from "./screens/Screen5result";
 import { Screen6 } from "./screens/Screen6";
 import { Screen7 } from "./screens/Screen7";
 import { Screen8 } from "./screens/Screen8";
+import { BodyInput } from "./screens/BodyDet/BodyInput";
 import { BodyDet } from "./screens/BodyDet/BodyDet";
 import { BodyResult } from "./screens/BodyResult/BodyResult";
 import { Recommend } from "./screens/Recommend";
@@ -21,6 +22,7 @@ import AccessoryRecommendation from "./screens/Recommend/AccessoryRecommendation
 import StyleOutfitRecommendation from "./screens/Recommend/StyleOutfitRecommendation";
 import OutfitRecommendation from './screens/Recommend/OutfitRecommendation';
 import GeneratePDF from './screens/generatePDF'
+import ExportPage from './screens/Export/ExportPage'
 // import { Screen9 } from "./screens/Screen9";
 
 export const App = () => {
@@ -63,6 +65,10 @@ export const App = () => {
     {
       path: "/face-result",
       element: <Screen5result capturedImage={capturedImage} apiResponse={apiResponse} />,
+    },
+    {
+      path: "/body-input",
+      element: <BodyInput />,
     },
     {
       path: "/body-det",
@@ -129,6 +135,11 @@ export const App = () => {
       // 生成报告，上传
       path: "/report",
       element: <GeneratePDF/>,
+    },
+    {
+      // 生成报告，上传
+      path: "/export",
+      element: <ExportPage/>,
     },
 
   ]);

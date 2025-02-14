@@ -13,7 +13,13 @@ export const BodyResult = () => {
       <div className="page-5">
         <img className="vector" alt="Vector" src="/img/vector-2-1.svg" />
         <img className="vector-2" alt="Vector" src="/img/vector-3-1.svg" />
-        <img className="wechatimg-5" alt="Wechatimg" src="/img/wechatimg257-removebg-1-4.svg" />
+        <Link className="component-5" to="/">
+            <img
+                className="wechatimg-5"
+                alt="Wechatimg"
+                src="/img/wechatimg257-removebg-1-4.svg"
+            />
+        </Link>
 
         {/* Left Sidebar for API Response */}
         <div className="left-sidebar">
