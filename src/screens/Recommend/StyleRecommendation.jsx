@@ -19,7 +19,9 @@ import SummaryCard from './cards/SummaryCard';
 import { Link } from 'react-router-dom';
 
 const StyleRecommendation = () => {
-  const style = "Classical"
+
+  const style = "Girl"
+
   const [outfitDataLoading, setOutfitDataLoading] = useState(true); // State to track loading status
   const [outfitDataExample, setOutfitDataExample] = useState([]); // State for outfit data
   const [shopDataLoading, setShopDataLoading] = useState([]); // State to track loading status

@@ -49,6 +49,19 @@ export const BodyResult = () => {
                   <strong>腿型:</strong> {apiResponse.three_d_model_info?.["腿型"]}
                 </p>
               </div>
+
+              <h2>Face Volume Info</h2>
+              <div className="api-section">
+                <p>
+                  <strong>量感分析:</strong> {apiResponse.face_volume_info?.["量感分析"]}
+                </p>
+                <p>
+                  <strong>综合曲直:</strong> {apiResponse.face_volume_info?.["综合曲直"]}
+                </p>  
+                <p>
+                  <strong>推荐风格:</strong> {apiResponse.face_volume_info?.["推荐风格"]}
+                </p>
+              </div>
             </div>
           )}
         </div>

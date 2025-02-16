@@ -27,7 +27,7 @@ export const BodyInput = () => {
          {/* Middle Section (Dropdowns) */}
         <div className="dropdown-container">
           <label className="dropdown-label">
-            请输入您的身高（单位：厘米）
+            请输入您的身高(单位：厘米,Ex:160)
             <select className="dropdown" value={customerHeight} onChange={(e) => setHeight(e.target.value)}>
               <option value="">选择身高</option>
               {[...Array(31)].map((_, i) => (
@@ -37,7 +37,7 @@ export const BodyInput = () => {
           </label>
 
           <label className="dropdown-label">
-            请输入您的胸围（单位：厘米）
+            请输入您的胸围(单位：厘米,ex-80)
             <select className="dropdown" value={customerChest} onChange={(e) => setChest(e.target.value)}>
               <option value="">选择胸围</option>
               {[...Array(15)].map((_, i) => (
@@ -47,7 +47,7 @@ export const BodyInput = () => {
           </label>
 
           <label className="dropdown-label">
-            请输入您的腰围（单位：厘米）
+            请输入您的腰围(单位：厘米,ex-60)
             <select className="dropdown" value={customerWaist} onChange={(e) => setWaist(e.target.value)}>
               <option value="">选择腰围</option>
               {[...Array(17)].map((_, i) => (
@@ -57,7 +57,7 @@ export const BodyInput = () => {
           </label>
 
           <label className="dropdown-label">
-            请输入您的臀围（单位：厘米）
+            请输入您的臀围(单位：厘米,ex-90)
             <select className="dropdown" value={customerHips} onChange={(e) => setHips(e.target.value)}>
               <option value="">选择臀围</option>
               {[...Array(17)].map((_, i) => (

@@ -96,7 +96,7 @@ export const Screen6 = () => {
 
         <div className="rectangle-17" />
 
-        <div className="text-wrapper-37">胸围：82 cm</div>
+        <div className="text-wrapper-37">胸围: 82 cm</div>
 
         <div className="ellipse-9" />
 
