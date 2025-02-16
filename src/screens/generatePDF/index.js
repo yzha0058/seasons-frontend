@@ -1,11 +1,31 @@
-import React from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Box, Button, Typography, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import { QRCodeSVG } from "qrcode.react"; // Correct import
 import { useNavigate } from "react-router-dom";
 
 const GeneratePDF = () => {
-  const pdfUrl = "https://your-cloud-storage.com/your-file.pdf";
+  const [pdfUrl, setPdfUrl] = useState(""); // State to store the PDF URL
+  const [loading, setLoading] = useState(true); // Loading state
+
+  useEffect(() => {
+    const fetchPdfUrl = async () => {
+      try {
+        const response = await axios.post("http://localhost:5000/pdf-upload", {
+          user_id: "12345", // Example request payload
+        });
+        setPdfUrl(response.data.file_url);
+        // console.log(response);
+        setLoading(false); // Stop loading when data is fetched
+      } catch (error) {
+        console.error("Error fetching PDF URL:", error);
+        setLoading(false); // Stop loading when data is fetched
+      }
+    };
+
+    fetchPdfUrl(); // Fetch URL on component mount
+  }, []);
 
   const clearCacheAndNavigate = () => {
     // Clear localStorage and sessionStorage
@@ -27,49 +47,39 @@ const GeneratePDF = () => {
           alignItems: "center",
           width: "100%",
           height: "100vh",
-          position: "relative", // Keep relative for nested elements
+          position: "relative",
         }}
       >
-        <Box
-          sx={{
-            backgroundColor: "#eef0f0",
-            textAlign: "center",
-          }}
-        >
-          {/* Grouping Image and QR Code */}
+        <Box sx={{ backgroundColor: "#eef0f0", textAlign: "center" }}>
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: "10px", // Adjust the space between elements
+              gap: "10px",
             }}
           >
             <img
               className="wechatimg-2"
               alt="Wechatimg"
               src="/img/wechatimg257-removebg-1-2.svg"
-              style={{
-                width: "350px", // Adjust size of the image
-                height: "auto", // Maintain aspect ratio
-              }}
+              style={{ width: "350px", height: "auto" }}
             />
-            {/* QR Code */}
-            <QRCodeSVG
-              value={pdfUrl} // The URL for the QR code
-              size={300} // Adjust size as needed
-              fgColor="#000" // Foreground color of the QR code
-              bgColor="#fff" // Background color of the QR code
-            />
+            
+            {/* Show Spinner While Loading */}
+            {loading ? (
+              <CircularProgress size={60} sx={{ color: "#555" }} /> // Loading Spinner
+            ) : (
+              <QRCodeSVG value={pdfUrl} size={300} fgColor="#000" bgColor="#fff" />
+            )}
           </Box>
 
-          {/* Instruction Text */}
           <Box sx={{ marginTop: "20px" }}>
             <Typography
               variant="h6"
               sx={{ fontSize: "1.5rem", fontWeight: "bold", color: "#333" }}
             >
-              请扫描上方二维码获取报告
+              {loading ? "正在生成报告，请稍候..." : "请扫描上方二维码获取报告"}
             </Typography>
           </Box>
         </Box>
@@ -78,10 +88,10 @@ const GeneratePDF = () => {
           <Button
             variant="contained"
             sx={{
-              position: "fixed", // Stick to the bottom of the page
-              bottom: 80, // Adjust space from the bottom
-              left: "50%", // Center horizontally
-              transform: "translateX(-50%)", // Adjust for horizontal centering
+              position: "fixed",
+              bottom: 80,
+              left: "50%",
+              transform: "translateX(-50%)",
               width: 301,
               height: 95,
               borderRadius: "75px",
@@ -91,7 +101,7 @@ const GeneratePDF = () => {
               fontSize: "2rem",
               fontWeight: "bold",
               fontFamily: "'Inter', Helvetica",
-              zIndex: 1000, // Ensure it's above other elements
+              zIndex: 1000,
             }}
           >
             返回首页

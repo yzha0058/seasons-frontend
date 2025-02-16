@@ -14,6 +14,8 @@
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^6.1.6",
     "@mui/material": "^5.10.0",
+    "axios": "^1.7.9",
+    "buffer": "^6.0.3",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.2",
     "prop-types": "^15.8.1",
