@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./style.css";
 import { Link } from "react-router-dom";
 
+
 export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiResponse }) => {
   const navigate = useNavigate();
   const location = useLocation(); // Get passed data
@@ -168,3 +169,4 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
     </>
   );
 };
+
