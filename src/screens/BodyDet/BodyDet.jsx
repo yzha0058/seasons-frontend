@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse }) => {
+export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiResponse }) => {
   const navigate = useNavigate();
   const location = useLocation(); // Get passed data
   const { customerHeight, customerChest, customerWaist, customerHips } = location.state || {}; // Extract data safely
@@ -68,7 +68,9 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse }) => {
             height: customerHeight, 
             chest: customerChest, 
             waist: customerWaist, 
-            hips: customerHips }),
+            hips: customerHips,
+            face_result: sharedApiResponse
+           }),
         });
 
         const data = await response.json();

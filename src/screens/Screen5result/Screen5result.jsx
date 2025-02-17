@@ -1,12 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./style.css";
 import { Link, useLocation } from "react-router-dom";
 
-export const Screen5result = () => {
+export const Screen5result = ({setSharedApiResponse }) => {
   const location = useLocation();
   const { capturedImage, apiResponse } = location.state || {};
 
   console.log(apiResponse)  // 打印接收的apiResponse
+
+  useEffect(() => {
+    if (apiResponse) {
+      console.log("Setting sharedApiResponse:");
+      setSharedApiResponse(apiResponse);
+    }
+  }, [apiResponse, setSharedApiResponse]);
 
   return (
     <div className="screen-5">

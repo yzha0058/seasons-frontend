@@ -32,6 +32,8 @@ export const App = () => {
   const [capturedBodyImage, setCapturedBodyImage] = useState(null);
   const [bodyApiResponse, setBodyApiResponse] = useState(null);
 
+  const [sharedApiResponse, setSharedApiResponse] = useState(null);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -64,7 +66,7 @@ export const App = () => {
     },
     {
       path: "/face-result",
-      element: <Screen5result capturedImage={capturedImage} apiResponse={apiResponse} />,
+      element: <Screen5result capturedImage={capturedImage} apiResponse={apiResponse} setSharedApiResponse={setSharedApiResponse}/>,
     },
     {
       path: "/body-input",
@@ -76,6 +78,7 @@ export const App = () => {
         <BodyDet
           setCapturedBodyImage={setCapturedBodyImage}
           setBodyApiResponse={setBodyApiResponse}
+          sharedApiResponse={sharedApiResponse}
         />
       ),
     },
