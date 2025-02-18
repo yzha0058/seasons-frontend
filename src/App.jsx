@@ -147,7 +147,10 @@ export const App = () => {
     {
       // 生成报告，上传
       path: "/report",
-      element: <GeneratePDF/>,
+      element: <GeneratePDF
+      sharedApiResponse={sharedApiResponse}
+      apiResponse={bodyApiResponse}
+      />,
     },
     {
       // 生成报告，上传

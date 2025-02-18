@@ -5,15 +5,20 @@ import { Link } from "react-router-dom";
 import { QRCodeSVG } from "qrcode.react"; // Correct import
 import { useNavigate } from "react-router-dom";
 
-const GeneratePDF = () => {
+const GeneratePDF = ({ sharedApiResponse, apiResponse}) => {
   const [pdfUrl, setPdfUrl] = useState(""); // State to store the PDF URL
   const [loading, setLoading] = useState(true); // Loading state
+
+  console.log(sharedApiResponse);
+  console.log(apiResponse);
 
   useEffect(() => {
     const fetchPdfUrl = async () => {
       try {
         const response = await axios.post("http://localhost:5000/pdf-upload", {
-          user_id: "12345", // Example request payload
+          // user_id: "12345", // Example request payload
+          face_info: sharedApiResponse,
+          body_info: apiResponse,
         });
         setPdfUrl(response.data.file_url);
         // console.log(response);
