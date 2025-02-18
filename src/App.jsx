@@ -108,14 +108,14 @@ export const App = () => {
       // 推荐页
       path: "/style-recommendation",
       element: <StyleRecommendation
-        sharedApiResponse={sharedApiResponse}
+        apiResponse={bodyApiResponse}
         />,
     },
     {
       // 推荐页
       path: "/hairstyle-recommendation",
       element: <HairRecommendation
-        sharedApiResponse={sharedApiResponse}
+        apiResponse={bodyApiResponse}
       />,
     },
     {

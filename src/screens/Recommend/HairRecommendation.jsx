@@ -17,10 +17,10 @@ import React, { useState, useEffect } from 'react';
 import HairRecommendationCard from './cards/HairRecommendationCard';
 import { Link } from 'react-router-dom';
 
-const HairRecommendation = ({ sharedApiResponse }) => {
+const HairRecommendation = ({ apiResponse }) => {
   const [recommendations, setRecommendations] = useState([]);
   // const style = "Girl";
-  const style = sharedApiResponse.Face_style;
+  const style = apiResponse.Face_style;
 
   useEffect(() => {
     // Fetch the JSON data from the cloud storage
