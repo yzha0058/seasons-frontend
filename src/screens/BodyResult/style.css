@@ -327,7 +327,7 @@
   position: relative; /* Keep the element flow intact */
 }
 
-.right-sidebar {
+.right-sidebar-body {
   flex: 1;
   background-color: #f8f9fa;
   padding: 20px;

@@ -53,7 +53,7 @@ export const BodyResult = () => {
           )}
         </div>
 
-        <div className="right-sidebar">
+        <div className="right-sidebar-body">
           {apiResponse && (
             <div className="api-response-container">
               <h2>量感分析</h2>
