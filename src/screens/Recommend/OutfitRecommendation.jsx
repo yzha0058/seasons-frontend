@@ -19,9 +19,12 @@ import OutfitRecommendationCard from './cards/OutfitRecommendationCard';
 import OutfitCard from './cards/OutfitCard';
 import { Link } from 'react-router-dom';
 
-const OutfitRecommendation = () => {
-  const style = "X";
-  const leg_style = "XO-leg"
+const OutfitRecommendation = ({ apiResponse }) => {
+  // const style = "X";
+  // const leg_style = "XO-leg"
+  const style = apiResponse.body_type;
+  const leg_style = apiResponse.leg_type;
+
   const [activeTab, setActiveTab] = useState('上衣');
   const[coatExample, setCoatExample] =  useState([]);
   const[pantsExample, setPantsExample] =  useState([]);

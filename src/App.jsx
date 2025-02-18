@@ -107,12 +107,16 @@ export const App = () => {
     {
       // 推荐页
       path: "/style-recommendation",
-      element: <StyleRecommendation/>,
+      element: <StyleRecommendation
+        sharedApiResponse={sharedApiResponse}
+        />,
     },
     {
       // 推荐页
       path: "/hairstyle-recommendation",
-      element: <HairRecommendation/>,
+      element: <HairRecommendation
+        sharedApiResponse={sharedApiResponse}
+      />,
     },
     {
       // 推荐页
@@ -122,17 +126,23 @@ export const App = () => {
     {
       // 推荐页
       path: "/accessory-recommendation",
-      element: <AccessoryRecommendation/>,
+      element: <AccessoryRecommendation
+      sharedApiResponse={sharedApiResponse}
+      />,
     },
     {
       // 推荐页
       path: "/style-outfit-recommendation",
-      element: <StyleOutfitRecommendation/>,
+      element: <StyleOutfitRecommendation
+        apiResponse={bodyApiResponse}
+      />,
     },
     {
       // 推荐页
       path: "/outfit-recommendation",
-      element: <OutfitRecommendation/>,
+      element: <OutfitRecommendation
+        apiResponse={bodyApiResponse}
+      />,
     },
     {
       // 生成报告，上传

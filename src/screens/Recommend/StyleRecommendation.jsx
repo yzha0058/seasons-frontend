@@ -18,9 +18,10 @@ import OutfitElementCard from './cards/OutfitElementCard';
 import SummaryCard from './cards/SummaryCard';
 import { Link } from 'react-router-dom';
 
-const StyleRecommendation = () => {
+const StyleRecommendation = ({ sharedApiResponse }) => {
 
-  const style = "Girl"
+  // const style = "Girl"
+  const style = sharedApiResponse.Face_style;
 
   const [outfitDataLoading, setOutfitDataLoading] = useState(true); // State to track loading status
   const [outfitDataExample, setOutfitDataExample] = useState([]); // State for outfit data

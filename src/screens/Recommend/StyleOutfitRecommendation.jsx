@@ -14,9 +14,11 @@ import HairRecommendationCard from './cards/HairRecommendationCard';
 import OutfitCard from './cards/OutfitCard';
 import { Link } from 'react-router-dom';
 
-const StyleOutfitRecommendation = () => {
+const StyleOutfitRecommendation = ({ apiResponse }) => {
     const [recommendations, setRecommendations] = useState([]);
-    const style = "Straight";
+    // const style = "Straight";
+    console.log(apiResponse);
+    const style = apiResponse.body_style;
   
     useEffect(() => {
       // Fetch the JSON data from the cloud storage

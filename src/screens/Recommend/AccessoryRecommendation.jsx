@@ -13,8 +13,9 @@ import React, { useState, useEffect } from 'react';
 import AccessoryRecommendCard from './cards/AccessoryRecommendCard';
 import { Link } from 'react-router-dom';
 
-const AccessoryRecommendation = () => {
-  const style = "Round";
+const AccessoryRecommendation = ({ sharedApiResponse }) => {
+  // const style = "Round";
+  const style = sharedApiResponse.Face_shape_type;
   const[recommendations, setRecommendations] =  useState([]);
   const [keywordsDataExample, setKeywordsDataExample] = useState([{ name: '', explain: '' }]);
 
