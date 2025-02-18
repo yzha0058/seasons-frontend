@@ -2,43 +2,44 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Box, Button, Typography, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
-import { QRCodeSVG } from "qrcode.react"; // Correct import
-import { useNavigate } from "react-router-dom";
+import { QRCodeSVG } from "qrcode.react";
 
-const GeneratePDF = ({ sharedApiResponse, apiResponse}) => {
+const GeneratePDF = ({ sharedApiResponse, apiResponse }) => {
   const [pdfUrl, setPdfUrl] = useState(""); // State to store the PDF URL
   const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState(false); // Error state
 
   console.log(sharedApiResponse);
   console.log(apiResponse);
 
-  useEffect(() => {
-    const fetchPdfUrl = async () => {
-      try {
-        const response = await axios.post("http://localhost:5000/pdf-upload", {
-          // user_id: "12345", // Example request payload
-          face_info: sharedApiResponse,
-          body_info: apiResponse,
-        });
-        setPdfUrl(response.data.file_url);
-        // console.log(response);
-        setLoading(false); // Stop loading when data is fetched
-      } catch (error) {
-        console.error("Error fetching PDF URL:", error);
-        setLoading(false); // Stop loading when data is fetched
-      }
-    };
+  const fetchPdfUrl = async () => {
+    setLoading(true);
+    setError(false);
+    setPdfUrl(""); // Clear previous URL
 
-    fetchPdfUrl(); // Fetch URL on component mount
+    try {
+      const response = await axios.post("http://localhost:5000/pdf-upload", {
+        face_info: sharedApiResponse,
+        body_info: apiResponse,
+      });
+
+      setPdfUrl(response.data.file_url);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching PDF URL:", error);
+      setError(true);
+      setLoading(false);
+    }
+  };
+
+  // Fetch PDF on component mount
+  useEffect(() => {
+    fetchPdfUrl();
   }, []);
 
   const clearCacheAndNavigate = () => {
-    // Clear localStorage and sessionStorage
     localStorage.clear();
     sessionStorage.clear();
-  
-    // Optional: Trigger a page reload to ensure no cached data is used
-    // window.location.reload();
   };
 
   return (
@@ -70,10 +71,14 @@ const GeneratePDF = ({ sharedApiResponse, apiResponse}) => {
               src="/img/wechatimg257-removebg-1-2.svg"
               style={{ width: "350px", height: "auto" }}
             />
-            
+
             {/* Show Spinner While Loading */}
             {loading ? (
-              <CircularProgress size={60} sx={{ color: "#555" }} /> // Loading Spinner
+              <CircularProgress size={60} sx={{ color: "#555" }} />
+            ) : error ? (
+              <Typography sx={{ color: "red", fontSize: "1.2rem", fontWeight: "bold" }}>
+                报告生成失败，请重试
+              </Typography>
             ) : (
               <QRCodeSVG value={pdfUrl} size={300} fgColor="#000" bgColor="#fff" />
             )}
@@ -84,17 +89,41 @@ const GeneratePDF = ({ sharedApiResponse, apiResponse}) => {
               variant="h6"
               sx={{ fontSize: "1.5rem", fontWeight: "bold", color: "#333" }}
             >
-              {loading ? "正在生成报告，请稍候..." : "请扫描上方二维码获取报告"}
+              {loading
+                ? "正在生成报告，请稍候..."
+                : error
+                ? "点击下方按钮重新生成"
+                : "请扫描上方二维码获取报告"}
             </Typography>
           </Box>
+
+          {/* Resend Request Button */}
+          {!loading && (
+            <Button
+              variant="contained"
+              onClick={fetchPdfUrl}
+              sx={{
+                marginTop: "20px",
+                backgroundColor: "rgb(0,123,255)",
+                color: "#fff",
+                fontSize: "1.2rem",
+                padding: "10px 20px",
+                borderRadius: "25px",
+                "&:hover": { backgroundColor: "rgb(0,100,230)" },
+              }}
+            >
+              重新生成报告
+            </Button>
+          )}
         </Box>
 
+        {/* Return Home Button */}
         <Link to="/" style={{ textDecoration: "none" }} onClick={clearCacheAndNavigate}>
           <Button
             variant="contained"
             sx={{
               position: "fixed",
-              bottom: 80,
+              bottom: 60,
               left: "50%",
               transform: "translateX(-50%)",
               width: 301,

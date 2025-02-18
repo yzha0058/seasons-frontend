@@ -33,7 +33,7 @@ export const Screen5result = ({setSharedApiResponse }) => {
         <div className="left-sidebar">
           {apiResponse && (
             <div className="api-response-container">
-              <h2>分析细节</h2>
+              {/* <h2>分析细节</h2> */}
               <div className="api-section">
                 <h3>脸型分析</h3>
                 <p>三庭比例: {apiResponse.Face_shape_info?.["三庭比例"]}</p>
@@ -54,6 +54,14 @@ export const Screen5result = ({setSharedApiResponse }) => {
                 <p>上下唇比例: {apiResponse.Lips_detailed_info?.["上下唇比例"]}</p>
                 <p>嘴唇曲直: {apiResponse.Lips_detailed_info?.["曲直结果"]}</p>
               </div>
+            </div>
+          )}
+        </div>
+
+        <div className="right-sidebar">
+          {apiResponse && (
+            <div className="api-response-container">
+              {/* <h2>分析细节</h2> */}
               <div className="api-section">
                 <h3>眼睛分析</h3> 
                 <p>右眼类型: {apiResponse.eye_detailed_info?.["右眼类型"]}</p>
@@ -88,6 +96,12 @@ export const Screen5result = ({setSharedApiResponse }) => {
             </div>
           )}
         </div>
+
+        <Link className="component-5" to="/face-det">
+          <div className="component-2-back">
+            <div className="text-wrapper-15-back">重新分析</div>
+          </div>
+        </Link>
 
         <Link className="component-5" to="/body-input">
           <div className="component-2">

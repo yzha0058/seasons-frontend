@@ -49,7 +49,13 @@ export const BodyResult = () => {
                   <strong>腿型:</strong> {apiResponse.three_d_model_info?.["腿型"]}
                 </p>
               </div>
+            </div>
+          )}
+        </div>
 
+        <div className="right-sidebar">
+          {apiResponse && (
+            <div className="api-response-container">
               <h2>量感分析</h2>
               <div className="api-section">
                 <p>
@@ -76,6 +82,12 @@ export const BodyResult = () => {
             </div>
           )}
         </div>
+
+        <Link className="component-5" to="/body-det">
+                  <div className="component-2-back">
+                    <div className="text-wrapper-15-back">重新分析</div>
+                  </div>
+                </Link>
 
         <Link className="component-5" to="/style-recommendation">
           <div className="component-2">
