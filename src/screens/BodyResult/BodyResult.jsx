@@ -83,7 +83,7 @@ export const BodyResult = () => {
           )}
         </div>
 
-        <Link className="component-5" to="/body-det">
+        <Link className="component-5" to="/body-input">
                   <div className="component-2-back">
                     <div className="text-wrapper-15-back">重新分析</div>
                   </div>

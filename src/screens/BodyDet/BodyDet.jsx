@@ -46,6 +46,12 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
 
+      // **绘制镜像翻转的图像**
+      // context.save();
+      // context.scale(-1, 1);  // 左右翻转
+      // context.drawImage(video, -canvas.width, 0, canvas.width, canvas.height);
+      // context.restore();
+
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       const base64Image = canvas.toDataURL("image/png");
 
