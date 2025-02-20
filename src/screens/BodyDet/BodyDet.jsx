@@ -4,14 +4,19 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 
-export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiResponse }) => {
+export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiResponse}) => {
   const navigate = useNavigate();
   const location = useLocation(); // Get passed data
-  const { customerHeight, customerChest, customerWaist, customerHips } = location.state || {}; // Extract data safely
+  // const { customerHeight, customerChest, customerWaist, customerHips } = location.state || {}; // Extract data safely
 
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const [countdown, setCountdown] = useState(0); // State for countdown
+
+  const height = localStorage.getItem("height");
+  const chest = localStorage.getItem("chest");
+  const waist = localStorage.getItem("waist");
+  const hips = localStorage.getItem("hips");
 
   useEffect(() => {
     const getCameraFeed = async () => {
@@ -52,11 +57,11 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
       try {
         // Ensure dropdown values are valid
         console.log("🔹 Sending Data:", {
-          image: base64Image,
-          customerHeight,
-          customerChest,
-          customerWaist,
-          customerHips,
+          image: "base64Image",
+          height,
+          chest,
+          waist,
+          hips,
         });
 
         const response = await fetch("http://localhost:5000/body-analyze", {
@@ -66,10 +71,10 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
           },
           body: JSON.stringify({ 
             image: base64Image, 
-            height: customerHeight, 
-            chest: customerChest, 
-            waist: customerWaist, 
-            hips: customerHips,
+            height: height, 
+            chest: chest, 
+            waist: waist, 
+            hips: hips,
             face_result: sharedApiResponse
            }),
         });

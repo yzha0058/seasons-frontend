@@ -34,6 +34,11 @@ export const App = () => {
 
   const [sharedApiResponse, setSharedApiResponse] = useState(null);
 
+  const [height, setHeight] = useState("");
+  const [chest, setChest] = useState("");
+  const [waist, setWaist] = useState("");
+  const [hips, setHips] = useState("");
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -70,7 +75,16 @@ export const App = () => {
     },
     {
       path: "/body-input",
-      element: <BodyInput />,
+      element: <BodyInput
+        height={height}
+        setHeight={setHeight}
+        chest={chest}
+        setChest={setChest}
+        waist={waist}
+        setWaist={setWaist}
+        hips={hips}
+        setHips={setHips}
+      />,
     },
     {
       path: "/body-det",

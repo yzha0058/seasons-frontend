@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import { Link, useNavigate  } from "react-router-dom";
 
-export const BodyInput = () => {
+export const BodyInput = ({ height, setHeight, chest, setChest, waist, setWaist, hips, setHips }) => {
   const navigate = useNavigate();
 
-  // State to store dropdown selections
-  const [customerHeight, setHeight] = useState("");
-  const [customerChest, setChest] = useState("");
-  const [customerWaist, setWaist] = useState("");
-  const [customerHips, setHips] = useState("");
+  useEffect(() => {
+    setHeight(localStorage.getItem("height") || "");
+    setChest(localStorage.getItem("chest") || "");
+    setWaist(localStorage.getItem("waist") || "");
+    setHips(localStorage.getItem("hips") || "");
+  }, []);
+
+  // Save values when they change
+  useEffect(() => {
+    localStorage.setItem("height", height);
+    localStorage.setItem("chest", chest);
+    localStorage.setItem("waist", waist);
+    localStorage.setItem("hips", hips);
+  }, [height, chest, waist, hips]);
 
   // Function to navigate to BodyDet with selected values
   const handleNext = () => {
-    navigate("/body-det", {
-      state: { customerHeight, customerChest, customerWaist, customerHips }, // Passing data
-    });
+    navigate("/body-det");
   };
 
   return (
@@ -28,7 +35,7 @@ export const BodyInput = () => {
         <div className="dropdown-container">
           <label className="dropdown-label">
             请输入您的身高(单位：厘米,Ex:160)
-            <select className="dropdown" value={customerHeight} onChange={(e) => setHeight(e.target.value)}>
+            <select className="dropdown" value={height} onChange={(e) => setHeight(e.target.value)}>
               <option value="">选择身高</option>
               {[...Array(31)].map((_, i) => (
                 <option key={i} value={140 + i * 2}>{140 + i * 2} cm</option>
@@ -38,7 +45,7 @@ export const BodyInput = () => {
 
           <label className="dropdown-label">
             请输入您的胸围(单位：厘米,ex-80)
-            <select className="dropdown" value={customerChest} onChange={(e) => setChest(e.target.value)}>
+            <select className="dropdown" value={chest} onChange={(e) => setChest(e.target.value)}>
               <option value="">选择胸围</option>
               {[...Array(15)].map((_, i) => (
                 <option key={i} value={70 + i * 5}>{70 + i * 5} cm</option>
@@ -48,7 +55,7 @@ export const BodyInput = () => {
 
           <label className="dropdown-label">
             请输入您的腰围(单位：厘米,ex-60)
-            <select className="dropdown" value={customerWaist} onChange={(e) => setWaist(e.target.value)}>
+            <select className="dropdown" value={waist} onChange={(e) => setWaist(e.target.value)}>
               <option value="">选择腰围</option>
               {[...Array(17)].map((_, i) => (
                 <option key={i} value={50 + i * 5}>{50 + i * 5} cm</option>
@@ -58,7 +65,7 @@ export const BodyInput = () => {
 
           <label className="dropdown-label">
             请输入您的臀围(单位：厘米,ex-90)
-            <select className="dropdown" value={customerHips} onChange={(e) => setHips(e.target.value)}>
+            <select className="dropdown" value={hips} onChange={(e) => setHips(e.target.value)}>
               <option value="">选择臀围</option>
               {[...Array(17)].map((_, i) => (
                 <option key={i} value={70 + i * 5}>{70 + i * 5} cm</option>

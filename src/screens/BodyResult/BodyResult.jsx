@@ -84,10 +84,10 @@ export const BodyResult = () => {
         </div>
 
         <Link className="component-5" to="/body-det">
-                  <div className="component-2-back">
-                    <div className="text-wrapper-15-back">重新分析</div>
-                  </div>
-                </Link>
+          <div className="component-2-back">
+            <div className="text-wrapper-15-back">重新分析</div>
+          </div>
+        </Link>
 
         <Link className="component-5" to="/style-recommendation">
           <div className="component-2">
