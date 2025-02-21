@@ -9,6 +9,13 @@ export const Screen5 = ({ setCapturedImage, setApiResponse }) => {
   const canvasRef = useRef(null);
   const [countdown, setCountdown] = useState(0); // State for countdown
 
+  const selectedAnswers = JSON.parse(localStorage.getItem("selectedAnswers"));
+
+  if (selectedAnswers) {
+    console.log("Retrieved Additional answers:", selectedAnswers);
+  }
+
+
   useEffect(() => {
     const getCameraFeed = async () => {
       try {
@@ -47,9 +54,6 @@ export const Screen5 = ({ setCapturedImage, setApiResponse }) => {
       // context.drawImage(video, -canvas.width, 0, canvas.width, canvas.height);
       // context.restore();
 
-
-      
-
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       const base64Image = canvas.toDataURL("image/png");
 
@@ -59,7 +63,7 @@ export const Screen5 = ({ setCapturedImage, setApiResponse }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ image: base64Image }),
+          body: JSON.stringify({ image: base64Image, answers: selectedAnswers }),
         });
 
         const data = await response.json();

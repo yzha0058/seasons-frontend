@@ -79,7 +79,7 @@ export const PageScreen = () => {
 
         <div className="text-wrapper-14">人脸分析协议</div>
 
-        <Link className="component-5" to="/face-det">
+        <Link className="component-5" to="/additional">
         <div className="component-2">
           <div className="text-wrapper-15">下一步</div>
         </div>

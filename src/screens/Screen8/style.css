@@ -1,5 +1,7 @@
 .screen-8 {
   background-color: #eef0f0;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -129,14 +131,7 @@
   top: 55px;
 }
 
-.screen-8 .rectangle-52 {
-  height: 150px;
-  left: 743px;
-  object-fit: cover;
-  position: absolute;
-  top: 55px;
-  width: 248px;
-}
+
 
 .screen-8 .text-wrapper-99 {
   color: #000000;
@@ -193,14 +188,7 @@
   width: 251px;
 }
 
-.screen-8 .rectangle-53 {
-  height: 150px;
-  left: 394px;
-  object-fit: cover;
-  position: absolute;
-  top: 55px;
-  width: 248px;
-}
+
 
 .screen-8 .text-wrapper-103 {
   color: #000000;
@@ -224,14 +212,7 @@
   width: 1005px;
 }
 
-.screen-8 .rectangle-54 {
-  height: 150px;
-  left: 45px;
-  object-fit: cover;
-  position: absolute;
-  top: 55px;
-  width: 248px;
-}
+
 
 .screen-8 .text-wrapper-104 {
   color: #000000;
@@ -264,38 +245,8 @@
   height: 246px;
   left: 79px;
   position: absolute;
-  top: 652px;
+  top: 612px;
   width: 1005px;
-}
-
-.screen-8 .rectangle-55 {
-  background-color: #d9d9d9;
-  border-radius: 16px;
-  height: 150px;
-  left: 45px;
-  position: absolute;
-  top: 55px;
-  width: 248px;
-}
-
-.screen-8 .rectangle-56 {
-  background-color: #d9d9d9;
-  border-radius: 16px;
-  height: 150px;
-  left: 394px;
-  position: absolute;
-  top: 55px;
-  width: 248px;
-}
-
-.screen-8 .rectangle-57 {
-  background-color: #d9d9d9;
-  border-radius: 16px;
-  height: 150px;
-  left: 743px;
-  position: absolute;
-  top: 55px;
-  width: 248px;
 }
 
 .screen-8 .component-8 {
@@ -345,20 +296,29 @@
   top: 41px;
 }
 
-.screen-8 .image-23 {
+/* Default image style */
+.screen-8 .image-22,
+.screen-8 .image-23,
+.screen-8 .image-24 {
   height: 150px;
-  left: 473px;
-  position: absolute;
-  top: 89px;
   width: 248px;
+  position: absolute;
+  top: 55px;
+  cursor: pointer; /* Makes it clear it's selectable */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Position adjustments */
+.screen-8 .image-22 {
+  left: 743px;
+}
+
+.screen-8 .image-23 {
+  left: 394px;
 }
 
 .screen-8 .image-24 {
-  height: 150px;
-  left: 124px;
-  position: absolute;
-  top: 89px;
-  width: 248px;
+  left: 45px;
 }
 
 .screen-8 .mask-group-5 {
@@ -410,4 +370,66 @@
   position: absolute;
   top: 0;
   width: 1125px;
+}
+
+
+/*    -------------------------------------    */
+/* Default image style */
+.screen-8 .image-54,
+.screen-8 .image-53,
+.screen-8 .image-52 {
+  height: 150px;
+  width: 248px;
+  position: absolute;
+  top: 55px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+}
+
+/* Position adjustments */
+.screen-8 .image-54 {
+  left: 45px;
+}
+
+.screen-8 .image-53 {
+  left: 394px;
+}
+
+.screen-8 .image-52 {
+  left: 743px;
+}
+
+/*    -------------------------------------    */
+
+/* Default image style */
+.screen-8 .image-55,
+.screen-8 .image-56,
+.screen-8 .image-57 {
+  height: 150px;
+  width: 248px;
+  position: absolute;
+  top: 55px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+}
+
+/* Position adjustments */
+.screen-8 .image-55 {
+  left: 45px;
+}
+
+.screen-8 .image-56 {
+  left: 394px;
+}
+
+.screen-8 .image-57 {
+  left: 743px;
+}
+
+/* Apply border-radius, border, and glow effect when selected */
+.selected-image {
+  border: 4px solid blue;
+  box-shadow: 0px 0px 15px rgba(0, 0, 255, 0.5);
+  transform: scale(1.1);
+  border-radius: 20px;
 }
