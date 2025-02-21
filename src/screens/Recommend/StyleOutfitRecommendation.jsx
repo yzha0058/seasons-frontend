@@ -70,7 +70,7 @@ const StyleOutfitRecommendation = () => {
               top="124px"
               left={0}
               alt="Mask group"
-              src="https://c.animaapp.com/K95331Bc/img/mask-group.png"
+              src="/img/ai-human2.png"
             />
           <Typography
             position="absolute"

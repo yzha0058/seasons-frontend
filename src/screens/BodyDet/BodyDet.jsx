@@ -72,7 +72,7 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
 
       try {
         // Ensure dropdown values are valid
-        console.log("🔹 Sending Data:", {
+        console.log("Sending Data:", {
           image: base64Image,
           height,
           chest,
@@ -188,6 +188,22 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
         </p>
         <p className="description-text">点击拍照后将有5秒的倒计时</p>
       </div>
+
+      <img
+        src="/img/stand-pose.jpg"
+        alt="Example"
+        style={{
+          position: "absolute",
+          top: "150px", // Adjust as needed
+          left: "1300px", // Adjust as needed
+          width: "580px", // Set width
+          height: "659px", // Set height
+          borderRadius: "20px", // Adds rounded corners
+          zIndex: 10, // Ensure it's above other elements
+        }}
+      />
+
+
     </>
   );
 };

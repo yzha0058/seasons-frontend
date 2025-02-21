@@ -157,7 +157,7 @@ export const Screen8 = () => {
         <img
           className="mask-group-5"
           alt="Mask group"
-          src="/img/mask-group-2.png"
+          src="/img/ai-human2.png"
         />
 
         <Link className="component-5" to="/">
