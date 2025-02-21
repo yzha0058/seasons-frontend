@@ -118,12 +118,12 @@ const GeneratePDF = () => {
           </Box>
 
           {/* Resend Request Button */}
-          {!loading && (
+          { error && (
             <Button
               variant="contained"
               onClick={fetchPdfUrl}
               sx={{
-                marginTop: "20px",
+                marginTop: "10px",
                 backgroundColor: "rgb(0,123,255)",
                 color: "#fff",
                 fontSize: "1.2rem",
