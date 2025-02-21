@@ -13,9 +13,18 @@ import React, { useState, useEffect } from 'react';
 import AccessoryRecommendCard from './cards/AccessoryRecommendCard';
 import { Link } from 'react-router-dom';
 
-const AccessoryRecommendation = ({ sharedApiResponse }) => {
+const AccessoryRecommendation = () => {
   // const style = "Round";
-  const style = sharedApiResponse.Face_shape_type;
+  const storedApiResponse = localStorage.getItem("faceResult");
+  let apiResponse;
+
+  if (storedApiResponse) {
+    apiResponse = JSON.parse(storedApiResponse); // Convert string to object
+    console.log(apiResponse);  // 打印接收的apiResponse
+  } else {
+    console.log("No stored API response found.");
+  }
+  const style = apiResponse.Face_shape_type;
   const[recommendations, setRecommendations] =  useState([]);
   const [keywordsDataExample, setKeywordsDataExample] = useState([{ name: '', explain: '' }]);
 

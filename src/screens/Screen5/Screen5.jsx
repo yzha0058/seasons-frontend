@@ -65,6 +65,7 @@ export const Screen5 = ({ setCapturedImage, setApiResponse }) => {
         const data = await response.json();
         setCapturedImage(base64Image);
         setApiResponse(data);
+        localStorage.setItem("faceResult", JSON.stringify(data));
 
         // Navigate to /page-27 with state data
         navigate("/face-result", { state: { capturedImage: base64Image, apiResponse: data } });

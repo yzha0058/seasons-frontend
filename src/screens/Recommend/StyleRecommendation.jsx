@@ -18,7 +18,17 @@ import OutfitElementCard from './cards/OutfitElementCard';
 import SummaryCard from './cards/SummaryCard';
 import { Link } from 'react-router-dom';
 
-const StyleRecommendation = ({ apiResponse }) => {
+const StyleRecommendation = () => {
+
+  const storedApiResponse = localStorage.getItem("bodyResult");
+  let apiResponse;
+
+  if (storedApiResponse) {
+    apiResponse = JSON.parse(storedApiResponse); // Convert string to object
+    console.log(apiResponse);  // 打印接收的apiResponse
+  } else {
+    console.log("No stored API response found.");
+  }
 
   // const style = "Girl"
   const style = apiResponse.Face_style;

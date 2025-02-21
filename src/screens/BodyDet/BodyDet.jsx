@@ -18,6 +18,16 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
   const waist = localStorage.getItem("waist");
   const hips = localStorage.getItem("hips");
 
+  const storedApiResponse = localStorage.getItem("faceResult");
+  let faceApiResponse;
+
+  if (storedApiResponse) {
+    faceApiResponse = JSON.parse(storedApiResponse); // Convert string to object
+    console.log(faceApiResponse);  // 打印接收的apiResponse
+  } else {
+    console.log("No stored API response found.");
+  }
+
   useEffect(() => {
     const getCameraFeed = async () => {
       try {
@@ -63,7 +73,7 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
       try {
         // Ensure dropdown values are valid
         console.log("🔹 Sending Data:", {
-          image: "base64Image",
+          image: base64Image,
           height,
           chest,
           waist,
@@ -81,13 +91,14 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
             chest: chest, 
             waist: waist, 
             hips: hips,
-            face_result: sharedApiResponse
+            face_result: faceApiResponse
            }),
         });
 
         const data = await response.json();
         setCapturedBodyImage(base64Image);
         setBodyApiResponse(data);
+        localStorage.setItem("bodyResult", JSON.stringify(data));
 
         // Navigate to /body-result with state data
         navigate("/body-result", { state: { capturedImage: base64Image, apiResponse: data } });

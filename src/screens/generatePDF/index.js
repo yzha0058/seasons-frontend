@@ -4,10 +4,30 @@ import { Box, Button, Typography, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import { QRCodeSVG } from "qrcode.react";
 
-const GeneratePDF = ({ sharedApiResponse, apiResponse }) => {
+const GeneratePDF = () => {
   const [pdfUrl, setPdfUrl] = useState(""); // State to store the PDF URL
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(false); // Error state
+
+  const storedFaceApiResponse = localStorage.getItem("faceResult");
+  let sharedApiResponse;
+
+  if (storedFaceApiResponse) {
+    sharedApiResponse = JSON.parse(storedFaceApiResponse); // Convert string to object
+    console.log(sharedApiResponse);  // 打印接收的apiResponse
+  } else {
+    console.log("No stored API response found.");
+  }
+
+  const storedBodyApiResponse = localStorage.getItem("bodyResult");
+  let apiResponse;
+
+  if (storedBodyApiResponse) {
+    apiResponse = JSON.parse(storedBodyApiResponse); // Convert string to object
+    console.log(apiResponse);  // 打印接收的apiResponse
+  } else {
+    console.log("No stored API response found.");
+  }
 
   console.log(sharedApiResponse);
   console.log(apiResponse);

@@ -122,14 +122,12 @@ export const App = () => {
       // 推荐页
       path: "/style-recommendation",
       element: <StyleRecommendation
-        apiResponse={bodyApiResponse}
         />,
     },
     {
       // 推荐页
       path: "/hairstyle-recommendation",
       element: <HairRecommendation
-        apiResponse={bodyApiResponse}
       />,
     },
     {
@@ -141,29 +139,24 @@ export const App = () => {
       // 推荐页
       path: "/accessory-recommendation",
       element: <AccessoryRecommendation
-      sharedApiResponse={sharedApiResponse}
       />,
     },
     {
       // 推荐页
       path: "/style-outfit-recommendation",
       element: <StyleOutfitRecommendation
-        apiResponse={bodyApiResponse}
       />,
     },
     {
       // 推荐页
       path: "/outfit-recommendation",
       element: <OutfitRecommendation
-        apiResponse={bodyApiResponse}
       />,
     },
     {
       // 生成报告，上传
       path: "/report",
       element: <GeneratePDF
-      sharedApiResponse={sharedApiResponse}
-      apiResponse={bodyApiResponse}
       />,
     },
     {

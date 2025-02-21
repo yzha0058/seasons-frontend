@@ -4,9 +4,17 @@ import { Link, useLocation } from "react-router-dom";
 
 export const BodyResult = () => {
   const location = useLocation();
-  const { capturedImage, apiResponse } = location.state || {};
+  const { capturedImage } = location.state || {};
 
-  console.log(apiResponse);
+  const storedApiResponse = localStorage.getItem("bodyResult");
+  let apiResponse;
+
+  if (storedApiResponse) {
+    apiResponse = JSON.parse(storedApiResponse); // Convert string to object
+    console.log(apiResponse);  // 打印接收的apiResponse
+  } else {
+    console.log("No stored API response found.");
+  }
   
   return (
     <div className="screen-5">

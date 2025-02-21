@@ -17,9 +17,18 @@ import React, { useState, useEffect } from 'react';
 import HairRecommendationCard from './cards/HairRecommendationCard';
 import { Link } from 'react-router-dom';
 
-const HairRecommendation = ({ apiResponse }) => {
+const HairRecommendation = () => {
   const [recommendations, setRecommendations] = useState([]);
   // const style = "Girl";
+  const storedApiResponse = localStorage.getItem("bodyResult");
+  let apiResponse;
+
+  if (storedApiResponse) {
+    apiResponse = JSON.parse(storedApiResponse); // Convert string to object
+    console.log(apiResponse);  // 打印接收的apiResponse
+  } else {
+    console.log("No stored API response found.");
+  }
   const style = apiResponse.Face_style;
 
   useEffect(() => {

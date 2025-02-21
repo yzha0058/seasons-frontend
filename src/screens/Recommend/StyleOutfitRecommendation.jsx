@@ -14,10 +14,18 @@ import HairRecommendationCard from './cards/HairRecommendationCard';
 import OutfitCard from './cards/OutfitCard';
 import { Link } from 'react-router-dom';
 
-const StyleOutfitRecommendation = ({ apiResponse }) => {
+const StyleOutfitRecommendation = () => {
     const [recommendations, setRecommendations] = useState([]);
     // const style = "Straight";
-    console.log(apiResponse);
+    const storedApiResponse = localStorage.getItem("bodyResult");
+    let apiResponse;
+
+    if (storedApiResponse) {
+      apiResponse = JSON.parse(storedApiResponse); // Convert string to object
+      console.log(apiResponse);  // 打印接收的apiResponse
+    } else {
+      console.log("No stored API response found.");
+    }
     const style = apiResponse.body_style;
   
     useEffect(() => {
