@@ -336,7 +336,7 @@
   max-height: 100vh;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 400px; /* Limit the sidebar width */
-  margin: -500px 0 0 1400px; /* Move the sidebar down and right */
+  margin: -550px 0 0 1400px; /* Move the sidebar down and right */
   position: relative; /* Keep the element flow intact */
 }
 

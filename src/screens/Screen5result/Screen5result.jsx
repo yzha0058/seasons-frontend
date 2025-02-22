@@ -92,13 +92,11 @@ export const Screen5result = ({setSharedApiResponse }) => {
 
         {/* Centered Overlay Content */}
         <div className="centered-overlay">
-          {capturedImage && (
             <div className="captured-image-section">
               <div className="camera-wrapper">
-                <img src={capturedImage} alt="Captured" className="centered-image" />
+                <img src={apiResponse.return_image} alt="Captured" className="centered-image" />
               </div>
             </div>
-          )}
         </div>
 
         <Link className="component-5" to="/face-det">
@@ -112,7 +110,7 @@ export const Screen5result = ({setSharedApiResponse }) => {
             <div className="text-wrapper-15">下一步</div>
           </div>
         </Link>
-        <img src={apiResponse.return_image} alt="Processed Image" />
+        {/* <img src={apiResponse.return_image} alt="Processed Image" /> */}
       </div>
     </div>
   );
