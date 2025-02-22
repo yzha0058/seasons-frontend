@@ -28,6 +28,12 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
     console.log("No stored API response found.");
   }
 
+  const selectedAnswers = JSON.parse(localStorage.getItem("selectedAnswers"));
+
+  if (selectedAnswers) {
+    console.log("Retrieved Additional answers:", selectedAnswers);
+  }
+
   useEffect(() => {
     const getCameraFeed = async () => {
       try {
@@ -91,7 +97,8 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
             chest: chest, 
             waist: waist, 
             hips: hips,
-            face_result: faceApiResponse
+            face_result: faceApiResponse,
+            answers: selectedAnswers
            }),
         });
 
