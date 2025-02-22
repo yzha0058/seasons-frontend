@@ -112,6 +112,7 @@ export const Screen5result = ({setSharedApiResponse }) => {
             <div className="text-wrapper-15">下一步</div>
           </div>
         </Link>
+        <img src={apiResponse.return_image} alt="Processed Image" />
       </div>
     </div>
   );
