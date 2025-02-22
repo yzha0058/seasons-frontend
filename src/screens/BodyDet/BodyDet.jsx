@@ -12,6 +12,7 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const [countdown, setCountdown] = useState(0); // State for countdown
+  const [loading, setLoading] = useState(false); // Loading state
 
   const height = localStorage.getItem("height");
   const chest = localStorage.getItem("chest");
@@ -60,6 +61,8 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
   const captureAndNavigate = async () => {
     // console.log(height, chest, waist, hips);
     if (videoRef.current && canvasRef.current) {
+      setLoading(true); // Start loading
+
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d");
       const video = videoRef.current;
@@ -111,6 +114,8 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
         navigate("/body-result", { state: { capturedImage: base64Image, apiResponse: data } });
       } catch (error) {
         console.error("Error sending image to backend:", error);
+      } finally {
+        setLoading(false); // Stop loading
       }
     }
   };
@@ -209,7 +214,13 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
           zIndex: 10, // Ensure it's above other elements
         }}
       />
-
+      {/* Loading Overlay */}
+      {loading && (
+        <div className="loading-overlay">
+          <div className="spinner"></div>
+          <p>处理中...</p>
+        </div>
+      )}
 
     </>
   );

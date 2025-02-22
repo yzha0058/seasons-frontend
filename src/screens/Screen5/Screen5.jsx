@@ -8,6 +8,7 @@ export const Screen5 = ({ setCapturedImage, setApiResponse }) => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const [countdown, setCountdown] = useState(0); // State for countdown
+  const [loading, setLoading] = useState(false); // Loading state
 
   const selectedAnswers = JSON.parse(localStorage.getItem("selectedAnswers"));
 
@@ -41,6 +42,8 @@ export const Screen5 = ({ setCapturedImage, setApiResponse }) => {
 
   const captureAndNavigate = async () => {
     if (videoRef.current && canvasRef.current) {
+      setLoading(true); // Start loading
+
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d");
       const video = videoRef.current;
@@ -75,6 +78,8 @@ export const Screen5 = ({ setCapturedImage, setApiResponse }) => {
         navigate("/face-result", { state: { capturedImage: base64Image, apiResponse: data } });
       } catch (error) {
         console.error("Error sending image to backend:", error);
+      } finally {
+        setLoading(false); // Stop loading
       }
     }
   };
@@ -160,6 +165,13 @@ export const Screen5 = ({ setCapturedImage, setApiResponse }) => {
         </p>
       <p className="description-text">点击拍照后将有5秒的倒计时</p>
     </div>
+    {/* Loading Overlay */}
+    {loading && (
+        <div className="loading-overlay">
+          <div className="spinner"></div>
+          <p>处理中...</p>
+        </div>
+      )}
     </>
   );
 };
