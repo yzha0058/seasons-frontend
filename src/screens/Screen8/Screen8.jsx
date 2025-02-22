@@ -46,7 +46,7 @@ export const Screen8 = () => {
 
           {/* Option A */}
           <div onClick={() => handleSelect("eyesight", "A")}>
-            <div className="text-wrapper-100">温柔｜可爱｜元气</div>
+            <div className="text-wrapper-100">元气｜温柔｜妩媚</div>
             <img
               className={`image-24 ${selectedAnswers.eyesight === "A" ? "selected-image" : ""}`}
               alt="Option A"
@@ -66,11 +66,11 @@ export const Screen8 = () => {
 
           {/* Option C */}
           <div onClick={() => handleSelect("eyesight", "C")}>
-            <div className="text-wrapper-102">知性｜温柔｜沉稳</div>
+            <div className="text-wrapper-102">知性｜大气｜沉稳</div>
             <img
               className={`image-22 ${selectedAnswers.eyesight === "C" ? "selected-image" : ""}`}
               alt="Option C"
-              src="/img/rectangle-22.png"
+              src="/img/image-3-2.png"
             />
           </div>
 
@@ -123,31 +123,31 @@ export const Screen8 = () => {
 
           {/* Option A: 不明显 */}
           <div onClick={() => handleSelect("kneecap", "A")}>
-            <div className="text-wrapper-100">不明显</div>
+            <div className="text-wrapper-100">自然</div>
             <img
               className={`image-55 ${selectedAnswers.kneecap === "A" ? "selected-image" : ""}`}
               alt="Option A"
-              src="/img/knee.jpg"
+              src="/img/Lap_Natural.jpg"
             />
           </div>
 
           {/* Option B: 偏细长 */}
           <div onClick={() => handleSelect("kneecap", "B")}>
-            <div className="text-wrapper-101">偏细长</div>
+            <div className="text-wrapper-101">偏曲</div>
             <img
               className={`image-56 ${selectedAnswers.kneecap === "B" ? "selected-image" : ""}`}
               alt="Option B"
-              src="/img/knee.jpg"
+              src="/img/Lap_Curve.jpg"
             />
           </div>
 
           {/* Option C: 较粗 */}
           <div onClick={() => handleSelect("kneecap", "C")}>
-            <div className="text-wrapper-102">较粗</div>
+            <div className="text-wrapper-102">偏直</div>
             <img
               className={`image-57 ${selectedAnswers.kneecap === "C" ? "selected-image" : ""}`}
               alt="Option C"
-              src="/img/knee.jpg"
+              src="/img/Lap_Straight.jpg"
             />
           </div>
 

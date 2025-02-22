@@ -46,6 +46,7 @@ export const Screen5result = ({setSharedApiResponse }) => {
                 <p>脸型判断结果: {apiResponse.Face_shape_info?.["脸型判断结果"]}</p>
                 <p>脸长和脸宽的比例: {apiResponse.Face_shape_info?.["脸长和脸宽的比例"]}</p>
                 <p>脸型曲直: {apiResponse.Face_shape_info?.["脸型曲直"]}</p>
+                <p>脸部量感: {apiResponse.Face_shape_info?.["脸部量感"]}</p>
               </div>
               <div className="api-section">
                 <h3>嘴唇分析</h3>
@@ -73,6 +74,7 @@ export const Screen5result = ({setSharedApiResponse }) => {
                 <p>左眼曲直: {apiResponse.eye_detailed_info?.["左眼曲直"]}</p>
                 <p>左眼眼长和眼高的比例: {apiResponse.eye_detailed_info?.["左眼眼长和眼高的比例"]}</p>
                 <p>眼型综合曲直: {apiResponse.eye_detailed_info?.["眼型综合曲直"]}</p>
+                <p>眼神: {apiResponse.eye_detailed_info?.["眼神"]}</p>
               </div>
               <div className="api-section">
                 <h3>鼻子分析</h3>
