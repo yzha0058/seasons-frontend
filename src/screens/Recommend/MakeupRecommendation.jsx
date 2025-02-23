@@ -13,6 +13,22 @@ import React, { useState } from 'react';
 import MakeupRecommendationCard from './cards/MakeupRecommendationCard';
 import { Link } from 'react-router-dom';
 
+// Map labels to their corresponding image URLs
+const imageUrls = {
+  "亮春": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangChun.jpg",
+  "柔春": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/RouChun.jpg",
+  "浅春": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/QianChun.jpg",
+  "亮夏": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangXia.jpg",
+  "柔夏": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/RouXia.jpg",
+  "浅夏": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/QianXia.jpg",
+  "亮秋": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangQiu.jpg",
+  "柔秋": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/RouQiu.jpg",
+  "深秋": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/ShenQiu.jpg",
+  "亮冬": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangDong.jpg",
+  "浅冬": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/QianDong.jpg",
+  "深冬": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/ShenDong.jpg",
+};
+
 const MakeupRecommendation = () => {
   const [showQuestionPage, setShowQuestionPage] = useState(true);
   const [selectedLabel, setSelectedLabel] = useState("");
@@ -126,25 +142,10 @@ const MakeupRecommendation = () => {
     // Add more items as needed
   ];
 
-  const handleLabelClick = (label) => {
+  const handleLabelClick = (label, imageUrls) => {
     setSelectedLabel(label);
+    localStorage.setItem("season-recommend", imageUrls[label]);
     setShowQuestionPage(false); // Transition to the main content
-  };
-
-  // Map labels to their corresponding image URLs
-  const imageUrls = {
-    "亮春": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangChun.jpg",
-    "柔春": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/RouChun.jpg",
-    "浅春": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/QianChun.jpg",
-    "亮夏": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangXia.jpg",
-    "柔夏": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/RouXia.jpg",
-    "浅夏": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/QianXia.jpg",
-    "亮秋": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangQiu.jpg",
-    "柔秋": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/RouQiu.jpg",
-    "深秋": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/ShenQiu.jpg",
-    "亮冬": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/LiangDong.jpg",
-    "浅冬": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/QianDong.jpg",
-    "深冬": "https://yzha-seasons.oss-cn-beijing.aliyuncs.com/MakeUp/12-Season-Makeup/ShenDong.jpg",
   };
 
   if (showQuestionPage) {
@@ -223,7 +224,7 @@ const MakeupRecommendation = () => {
           {questionData.map((item, index) => (
             <Box
               key={index}
-              onClick={() => handleLabelClick(item.label)}
+              onClick={() => handleLabelClick(item.label, imageUrls)}
               sx={{
                 display: "flex",
                 flexDirection: "row",

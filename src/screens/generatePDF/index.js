@@ -12,6 +12,8 @@ const GeneratePDF = () => {
   const storedFaceApiResponse = localStorage.getItem("faceResult");
   let sharedApiResponse;
 
+  const season_recommend = localStorage.getItem("season-recommend") || "";
+
   if (storedFaceApiResponse) {
     sharedApiResponse = JSON.parse(storedFaceApiResponse); // Convert string to object
     console.log(sharedApiResponse);  // 打印接收的apiResponse
@@ -41,6 +43,7 @@ const GeneratePDF = () => {
       const response = await axios.post("http://localhost:5000/pdf-upload", {
         face_info: sharedApiResponse,
         body_info: apiResponse,
+        season_recommend: season_recommend,
       });
 
       setPdfUrl(response.data.file_url);

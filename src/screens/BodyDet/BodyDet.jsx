@@ -207,8 +207,8 @@ export const BodyDet = ({ setCapturedBodyImage, setBodyApiResponse, sharedApiRes
         style={{
           position: "absolute",
           top: "150px", // Adjust as needed
-          left: "1300px", // Adjust as needed
-          width: "580px", // Set width
+          left: "1400px", // Adjust as needed
+          width: "350px", // Set width
           height: "659px", // Set height
           borderRadius: "20px", // Adds rounded corners
           zIndex: 10, // Ensure it's above other elements
