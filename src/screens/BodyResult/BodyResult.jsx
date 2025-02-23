@@ -85,7 +85,7 @@ export const BodyResult = () => {
           {capturedImage && (
             <div className="captured-image-section">
               <div className="camera-wrapper">
-                <img src={capturedImage} alt="Captured" className="centered-image" />
+                <img src={apiResponse.processed_body_image} alt="Captured" className="centered-image" />
               </div>
             </div>
           )}
