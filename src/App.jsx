@@ -23,6 +23,7 @@ import StyleOutfitRecommendation from "./screens/Recommend/StyleOutfitRecommenda
 import OutfitRecommendation from './screens/Recommend/OutfitRecommendation';
 import GeneratePDF from './screens/generatePDF'
 import ExportPage from './screens/Export/ExportPage'
+import ThankPage from "./screens/Thank/ThankPage";
 // import { Screen9 } from "./screens/Screen9";
 
 export const App = () => {
@@ -163,6 +164,11 @@ export const App = () => {
       // 生成报告，上传
       path: "/export",
       element: <ExportPage/>,
+    },
+    {
+      // 结束页
+      path: "/thank",
+      element: <ThankPage/>,
     },
 
   ]);

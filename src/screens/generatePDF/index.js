@@ -60,11 +60,6 @@ const GeneratePDF = () => {
     fetchPdfUrl();
   }, []);
 
-  const clearCacheAndNavigate = () => {
-    localStorage.clear();
-    sessionStorage.clear();
-  };
-
   return (
     <div>
       <Box
@@ -141,7 +136,7 @@ const GeneratePDF = () => {
         </Box>
 
         {/* Return Home Button */}
-        <Link to="/" style={{ textDecoration: "none" }} onClick={clearCacheAndNavigate}>
+        <Link to="/thank" style={{ textDecoration: "none" }}>
           <Button
             variant="contained"
             sx={{
@@ -161,7 +156,7 @@ const GeneratePDF = () => {
               zIndex: 1000,
             }}
           >
-            返回首页
+            继续
           </Button>
         </Link>
       </Box>
