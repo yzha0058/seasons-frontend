@@ -1,11 +1,71 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import StarIcon from "@mui/icons-material/Star";
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const FrontPage = () => {
+  const [showLogo, setShowLogo] = useState(true);
+  const [animateLogo, setAnimateLogo] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimateLogo(true); // Start animation after 3 seconds
+    }, 3300);
+
+    const removeTimer = setTimeout(() => {
+      setShowLogo(false); // Remove logo after animation completes
+    }, 4500); // Total time of animation (3s + 1.5s animation)
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(removeTimer);
+    };
+  }, []);
+
   return (
+    <>
+      {showLogo ? (
+        <Box
+          width="100vw"
+          height="100vh"
+          bgcolor="rgba(0, 0, 0, 0.01)" // Grey overlay
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          position="fixed"
+          top={0}
+          left={0}
+          zIndex={1000}
+        >
+          <Box
+            sx={{
+              width: "80%", // Initial width
+              maxWidth: "1200px",
+              overflow: "hidden",
+              clipPath: "inset(50px 25% 50px 25%)", // Clips left & right 25%
+              backgroundColor: "white", // Keeps GIF background clean
+              padding: "20px",
+              borderRadius: "10px",
+              position: "absolute",
+              transition: "all 1.5s ease-in-out", // Smooth animation
+              transform: animateLogo
+                ? "translate(-49vw, -47vh) scale(0.2)" // Move to top-left, shrink
+                : "translate(0, 0) scale(1)", // Start at center
+              opacity: animateLogo ? 0 : 1, // Gradually fade out
+            }}
+          >
+            <img
+              src="/img/logo.gif"
+              alt="Logo"
+              style={{
+                width: "100%", // Make it fill the clipped box
+                height: "auto",
+              }}
+            />
+          </Box>
+        </Box>
+      ) : (
     <Box display="flex" justifyContent="center" width="100%" bgcolor="white">
       <Box position="relative" width="1920px" height="1080px" overflow="hidden">
         <Box
@@ -623,5 +683,7 @@ export const FrontPage = () => {
         />
       </Box>
     </Box>
+    )}
+    </>
   );
 };

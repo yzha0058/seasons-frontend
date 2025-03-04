@@ -40,7 +40,7 @@ export const Screen8 = () => {
         <div className="group-17">
           <div className="text-wrapper-96">A.</div>
           <div className="text-wrapper-97">B.</div>
-          <div className="text-wrapper-98">C.</div>
+          {/* <div className="text-wrapper-98">C.</div> */}
 
           <div className="text-wrapper-99">你认为或者朋友评价你的眼神是偏：</div>
 
@@ -65,14 +65,14 @@ export const Screen8 = () => {
           </div>
 
           {/* Option C */}
-          <div onClick={() => handleSelect("eyesight", "C")}>
+          {/* <div onClick={() => handleSelect("eyesight", "C")}>
             <div className="text-wrapper-102">知性｜大气｜沉稳</div>
             <img
               className={`image-22 ${selectedAnswers.eyesight === "C" ? "selected-image" : ""}`}
               alt="Option C"
               src="/img/image-3-2.png"
             />
-          </div>
+          </div> */}
 
         </div>
 
