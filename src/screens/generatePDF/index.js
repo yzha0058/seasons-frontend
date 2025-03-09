@@ -44,6 +44,8 @@ const GeneratePDF = () => {
         face_info: sharedApiResponse,
         body_info: apiResponse,
         season_recommend: season_recommend,
+        face_image: sharedApiResponse.return_image,
+        body_image: apiResponse.processed_body_image
       });
 
       setPdfUrl(response.data.file_url);
