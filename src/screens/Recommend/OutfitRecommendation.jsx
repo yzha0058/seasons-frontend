@@ -27,7 +27,6 @@ const OutfitRecommendation = () => {
 
   if (storedApiResponse) {
     apiResponse = JSON.parse(storedApiResponse); // Convert string to object
-    console.log(apiResponse);  // 打印接收的apiResponse
   } else {
     console.log("No stored API response found.");
   }

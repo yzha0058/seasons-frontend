@@ -25,13 +25,12 @@ const StyleRecommendation = () => {
 
   if (storedApiResponse) {
     apiResponse = JSON.parse(storedApiResponse); // Convert string to object
-    console.log(apiResponse);  // 打印接收的apiResponse
   } else {
     console.log("No stored API response found.");
   }
 
   // const style = "Girl"
-  const style = apiResponse.Face_style;
+  const style = apiResponse.face_volume_info.Face_style;
 
   const [outfitDataLoading, setOutfitDataLoading] = useState(true); // State to track loading status
   const [outfitDataExample, setOutfitDataExample] = useState([]); // State for outfit data

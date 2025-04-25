@@ -16,7 +16,6 @@ const GeneratePDF = () => {
 
   if (storedFaceApiResponse) {
     sharedApiResponse = JSON.parse(storedFaceApiResponse); // Convert string to object
-    console.log(sharedApiResponse);  // 打印接收的apiResponse
   } else {
     console.log("No stored API response found.");
   }
@@ -26,13 +25,9 @@ const GeneratePDF = () => {
 
   if (storedBodyApiResponse) {
     apiResponse = JSON.parse(storedBodyApiResponse); // Convert string to object
-    console.log(apiResponse);  // 打印接收的apiResponse
   } else {
     console.log("No stored API response found.");
   }
-
-  console.log(sharedApiResponse);
-  console.log(apiResponse);
 
   const fetchPdfUrl = async () => {
     setLoading(true);

@@ -25,11 +25,10 @@ const HairRecommendation = () => {
 
   if (storedApiResponse) {
     apiResponse = JSON.parse(storedApiResponse); // Convert string to object
-    console.log(apiResponse);  // 打印接收的apiResponse
   } else {
     console.log("No stored API response found.");
   }
-  const style = apiResponse.Face_style;
+  const style = apiResponse.face_volume_info.Face_style;
 
   useEffect(() => {
     // Fetch the JSON data from the cloud storage
